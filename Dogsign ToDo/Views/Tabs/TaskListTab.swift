@@ -8,10 +8,19 @@
 import SwiftUI
 
 struct TaskListTab: View {
-    var body: some View {
-        Text("Its task list tab")
+    @ObservedObject var globalTasksData = GlobalTasksDataModel()
+    
+    var body : some View {
+        List (globalTasksData.globalTasks) { globalTask in
+            TaskView(title: globalTask.title, person: "nil", description: globalTask.description, isChecked: globalTask.isFinished)
+        }
+        .onAppear() {
+            self.globalTasksData.fetchData()
+        }
     }
 }
+
+
 
 struct TaskListTab_Previews: PreviewProvider {
     static var previews: some View {

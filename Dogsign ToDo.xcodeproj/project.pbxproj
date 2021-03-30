@@ -3,24 +3,28 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		77F0C3D426132C29007F0559 /* Dogsign_ToDoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F0C3D326132C29007F0559 /* Dogsign_ToDoApp.swift */; };
-		77F0C3D626132C29007F0559 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F0C3D526132C29007F0559 /* ContentView.swift */; };
 		77F0C3D826132C2C007F0559 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77F0C3D726132C2C007F0559 /* Assets.xcassets */; };
 		77F0C3DB26132C2C007F0559 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77F0C3DA26132C2C007F0559 /* Preview Assets.xcassets */; };
 		77F0C3E926132D64007F0559 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F0C3E826132D64007F0559 /* WelcomeView.swift */; };
 		77F0C40F26133417007F0559 /* ErrorTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F0C40E26133417007F0559 /* ErrorTab.swift */; };
 		77F0C41326133468007F0559 /* TaskListTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F0C41226133468007F0559 /* TaskListTab.swift */; };
 		77F0C416261334A6007F0559 /* ProjectsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F0C415261334A6007F0559 /* ProjectsTab.swift */; };
+		77F0C41A26134062007F0559 /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F0C41926134062007F0559 /* TaskView.swift */; };
+		77F0C44726136B43007F0559 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 77F0C44626136B43007F0559 /* GoogleService-Info.plist */; };
+		77F0C45A2613799E007F0559 /* GlobalTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F0C4592613799E007F0559 /* GlobalTasks.swift */; };
+		77F0C45D26137B18007F0559 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F0C45C26137B18007F0559 /* FirestoreManager.swift */; };
+		D22D4EEF200E672FDBAF79E8 /* Pods_Dogsign_ToDo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2678272F528A2761F4183EA /* Pods_Dogsign_ToDo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		62FD8AF11A626BC943B90E91 /* Pods-Dogsign ToDo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dogsign ToDo.debug.xcconfig"; path = "Target Support Files/Pods-Dogsign ToDo/Pods-Dogsign ToDo.debug.xcconfig"; sourceTree = "<group>"; };
 		77F0C3D026132C29007F0559 /* Dogsign ToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dogsign ToDo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77F0C3D326132C29007F0559 /* Dogsign_ToDoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dogsign_ToDoApp.swift; sourceTree = "<group>"; };
-		77F0C3D526132C29007F0559 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		77F0C3D726132C2C007F0559 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		77F0C3DA26132C2C007F0559 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		77F0C3DC26132C2C007F0559 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -29,6 +33,12 @@
 		77F0C40E26133417007F0559 /* ErrorTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorTab.swift; sourceTree = "<group>"; };
 		77F0C41226133468007F0559 /* TaskListTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListTab.swift; sourceTree = "<group>"; };
 		77F0C415261334A6007F0559 /* ProjectsTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsTab.swift; sourceTree = "<group>"; };
+		77F0C41926134062007F0559 /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
+		77F0C44626136B43007F0559 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		77F0C4592613799E007F0559 /* GlobalTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalTasks.swift; sourceTree = "<group>"; };
+		77F0C45C26137B18007F0559 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
+		B2678272F528A2761F4183EA /* Pods_Dogsign_ToDo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dogsign_ToDo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0F3798EE1C0221EEFCDC8C3 /* Pods-Dogsign ToDo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dogsign ToDo.release.xcconfig"; path = "Target Support Files/Pods-Dogsign ToDo/Pods-Dogsign ToDo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,17 +46,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D22D4EEF200E672FDBAF79E8 /* Pods_Dogsign_ToDo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06A31F9A612AA0B6121AD6E3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				62FD8AF11A626BC943B90E91 /* Pods-Dogsign ToDo.debug.xcconfig */,
+				D0F3798EE1C0221EEFCDC8C3 /* Pods-Dogsign ToDo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		77F0C3C726132C29007F0559 = {
 			isa = PBXGroup;
 			children = (
 				77F0C3D226132C29007F0559 /* Dogsign ToDo */,
 				77F0C3D126132C29007F0559 /* Products */,
+				06A31F9A612AA0B6121AD6E3 /* Pods */,
+				E9A5B75FB0F6FD6813BE718E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +89,7 @@
 				77F0C3D726132C2C007F0559 /* Assets.xcassets */,
 				77F0C3D326132C29007F0559 /* Dogsign_ToDoApp.swift */,
 				77F0C3DC26132C2C007F0559 /* Info.plist */,
+				77F0C44626136B43007F0559 /* GoogleService-Info.plist */,
 				77F0C3DD26132C2C007F0559 /* Dogsign_ToDo.entitlements */,
 				77F0C3D926132C2C007F0559 /* Preview Content */,
 			);
@@ -84,8 +107,8 @@
 		77F0C3E426132CB6007F0559 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				77F0C41826134047007F0559 /* Universal Components */,
 				77F0C40D26133401007F0559 /* Tabs */,
-				77F0C3D526132C29007F0559 /* ContentView.swift */,
 				77F0C3E826132D64007F0559 /* WelcomeView.swift */,
 				77F0C40E26133417007F0559 /* ErrorTab.swift */,
 			);
@@ -102,6 +125,8 @@
 		77F0C3E626132CEB007F0559 /* Data Models */ = {
 			isa = PBXGroup;
 			children = (
+				77F0C4592613799E007F0559 /* GlobalTasks.swift */,
+				77F0C45C26137B18007F0559 /* FirestoreManager.swift */,
 			);
 			path = "Data Models";
 			sourceTree = "<group>";
@@ -115,6 +140,22 @@
 			path = Tabs;
 			sourceTree = "<group>";
 		};
+		77F0C41826134047007F0559 /* Universal Components */ = {
+			isa = PBXGroup;
+			children = (
+				77F0C41926134062007F0559 /* TaskView.swift */,
+			);
+			path = "Universal Components";
+			sourceTree = "<group>";
+		};
+		E9A5B75FB0F6FD6813BE718E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B2678272F528A2761F4183EA /* Pods_Dogsign_ToDo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -122,9 +163,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 77F0C3E026132C2C007F0559 /* Build configuration list for PBXNativeTarget "Dogsign ToDo" */;
 			buildPhases = (
+				44C755BAF69F9A971834EC17 /* [CP] Check Pods Manifest.lock */,
 				77F0C3CC26132C29007F0559 /* Sources */,
 				77F0C3CD26132C29007F0559 /* Frameworks */,
 				77F0C3CE26132C29007F0559 /* Resources */,
+				9BB0144221458DACB89BB746 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -174,22 +217,67 @@
 			files = (
 				77F0C3DB26132C2C007F0559 /* Preview Assets.xcassets in Resources */,
 				77F0C3D826132C2C007F0559 /* Assets.xcassets in Resources */,
+				77F0C44726136B43007F0559 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		44C755BAF69F9A971834EC17 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Dogsign ToDo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9BB0144221458DACB89BB746 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Dogsign ToDo/Pods-Dogsign ToDo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Dogsign ToDo/Pods-Dogsign ToDo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Dogsign ToDo/Pods-Dogsign ToDo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		77F0C3CC26132C29007F0559 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77F0C3D626132C29007F0559 /* ContentView.swift in Sources */,
+				77F0C41A26134062007F0559 /* TaskView.swift in Sources */,
+				77F0C45A2613799E007F0559 /* GlobalTasks.swift in Sources */,
 				77F0C3E926132D64007F0559 /* WelcomeView.swift in Sources */,
 				77F0C40F26133417007F0559 /* ErrorTab.swift in Sources */,
 				77F0C416261334A6007F0559 /* ProjectsTab.swift in Sources */,
 				77F0C3D426132C29007F0559 /* Dogsign_ToDoApp.swift in Sources */,
 				77F0C41326133468007F0559 /* TaskListTab.swift in Sources */,
+				77F0C45D26137B18007F0559 /* FirestoreManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,7 +335,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -302,7 +390,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -313,6 +401,7 @@
 		};
 		77F0C3E126132C2C007F0559 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 62FD8AF11A626BC943B90E91 /* Pods-Dogsign ToDo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -337,6 +426,7 @@
 		};
 		77F0C3E226132C2C007F0559 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0F3798EE1C0221EEFCDC8C3 /* Pods-Dogsign ToDo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

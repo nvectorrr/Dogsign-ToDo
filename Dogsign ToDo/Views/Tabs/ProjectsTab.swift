@@ -8,22 +8,38 @@
 import SwiftUI
 
 var testProjects = ["Proj1", "Proj2", "Proj3"]
+var testTaskForProjList = ["task 1", "task 2", "task 3", "task  4", "task 4"]
 
 struct ProjectsTab : View {
     var body: some View {
-        NavigationView {
-            List(testProjects, id: \.self) { proj in
-                NavigationLink(destination: CurrentProject()) {
-                    Text(proj)
+        HStack {
+            NavigationView {
+                List(testProjects, id: \.self) { proj in
+                    NavigationLink(destination: CurrentProject(proj_name: proj)) {
+                        Text(proj)
+                    }
                 }
+                .listStyle(SidebarListStyle())
             }
         }
+    }
+    
+    func createNewProject() {
+        
     }
 }
 
 struct CurrentProject : View {
+    var proj_name : String
+    
     var body : some View {
-        Text("curr proj")
+        List {
+            Section(header: Text(proj_name).font(.system(size: 36))) {
+                ForEach(0 ..< testTaskForProjList.count) {
+                    TaskView(title: testTaskForProjList[$0], person: "person", description: "descr", isChecked: false)
+                }
+            }
+        }
     }
 }
 
