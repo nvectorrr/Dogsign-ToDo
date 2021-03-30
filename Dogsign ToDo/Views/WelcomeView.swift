@@ -11,13 +11,6 @@ struct WelcomeView : View {
     private let tabs = ["Task List", "Projects", "Future Projects", "Content Plan", "Calendar"]
     @State private var selectedTab = 0
     var body : some View {
-        /*TabView {
-            TaskListTab()
-                .tabItem { Label("Task List", systemImage: "list.dash") }
-            ProjectsTab()
-                .tabItem { Label("Projects", systemImage: "list.dash") }
-        }
-        .tabViewStyle(DefaultTabViewStyle())*/
         VStack {
             HStack {
                 Spacer()
@@ -29,10 +22,6 @@ struct WelcomeView : View {
                 .pickerStyle(SegmentedPickerStyle())
                 .padding(.top, 8)
                 Spacer()
-                Button(action: addItem) {
-                    Label("Add Item", systemImage: "plus")
-                }
-                .padding(.top, 8)
             }
             .padding(.horizontal, 100)
             Divider()
@@ -42,6 +31,7 @@ struct WelcomeView : View {
                 }
             }
         }
+        .frame(width: 600, height: 500)
     }
     
     func addItem() {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7762633E2613DAB200816214 /* Convertions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7762633D2613DAB200816214 /* Convertions.swift */; };
 		77F0C3D426132C29007F0559 /* Dogsign_ToDoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F0C3D326132C29007F0559 /* Dogsign_ToDoApp.swift */; };
 		77F0C3D826132C2C007F0559 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77F0C3D726132C2C007F0559 /* Assets.xcassets */; };
 		77F0C3DB26132C2C007F0559 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77F0C3DA26132C2C007F0559 /* Preview Assets.xcassets */; };
@@ -18,11 +19,13 @@
 		77F0C44726136B43007F0559 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 77F0C44626136B43007F0559 /* GoogleService-Info.plist */; };
 		77F0C45A2613799E007F0559 /* GlobalTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F0C4592613799E007F0559 /* GlobalTasks.swift */; };
 		77F0C45D26137B18007F0559 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F0C45C26137B18007F0559 /* FirestoreManager.swift */; };
+		77F0C4C52613CA23007F0559 /* DropdownTaskCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F0C4C42613CA23007F0559 /* DropdownTaskCreator.swift */; };
 		D22D4EEF200E672FDBAF79E8 /* Pods_Dogsign_ToDo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2678272F528A2761F4183EA /* Pods_Dogsign_ToDo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		62FD8AF11A626BC943B90E91 /* Pods-Dogsign ToDo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dogsign ToDo.debug.xcconfig"; path = "Target Support Files/Pods-Dogsign ToDo/Pods-Dogsign ToDo.debug.xcconfig"; sourceTree = "<group>"; };
+		7762633D2613DAB200816214 /* Convertions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Convertions.swift; sourceTree = "<group>"; };
 		77F0C3D026132C29007F0559 /* Dogsign ToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dogsign ToDo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77F0C3D326132C29007F0559 /* Dogsign_ToDoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dogsign_ToDoApp.swift; sourceTree = "<group>"; };
 		77F0C3D726132C2C007F0559 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -37,6 +40,7 @@
 		77F0C44626136B43007F0559 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		77F0C4592613799E007F0559 /* GlobalTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalTasks.swift; sourceTree = "<group>"; };
 		77F0C45C26137B18007F0559 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
+		77F0C4C42613CA23007F0559 /* DropdownTaskCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownTaskCreator.swift; sourceTree = "<group>"; };
 		B2678272F528A2761F4183EA /* Pods_Dogsign_ToDo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dogsign_ToDo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0F3798EE1C0221EEFCDC8C3 /* Pods-Dogsign ToDo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dogsign ToDo.release.xcconfig"; path = "Target Support Files/Pods-Dogsign ToDo/Pods-Dogsign ToDo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,6 +122,7 @@
 		77F0C3E526132CC2007F0559 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				7762633D2613DAB200816214 /* Convertions.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -144,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				77F0C41926134062007F0559 /* TaskView.swift */,
+				77F0C4C42613CA23007F0559 /* DropdownTaskCreator.swift */,
 			);
 			path = "Universal Components";
 			sourceTree = "<group>";
@@ -270,12 +276,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7762633E2613DAB200816214 /* Convertions.swift in Sources */,
 				77F0C41A26134062007F0559 /* TaskView.swift in Sources */,
 				77F0C45A2613799E007F0559 /* GlobalTasks.swift in Sources */,
 				77F0C3E926132D64007F0559 /* WelcomeView.swift in Sources */,
 				77F0C40F26133417007F0559 /* ErrorTab.swift in Sources */,
 				77F0C416261334A6007F0559 /* ProjectsTab.swift in Sources */,
 				77F0C3D426132C29007F0559 /* Dogsign_ToDoApp.swift in Sources */,
+				77F0C4C52613CA23007F0559 /* DropdownTaskCreator.swift in Sources */,
 				77F0C41326133468007F0559 /* TaskListTab.swift in Sources */,
 				77F0C45D26137B18007F0559 /* FirestoreManager.swift in Sources */,
 			);

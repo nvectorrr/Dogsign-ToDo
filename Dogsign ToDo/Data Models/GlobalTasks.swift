@@ -6,6 +6,7 @@
 //
 
 import Combine
+import FirebaseFirestore
 import Foundation
 
 struct GlobalTask : Identifiable {
@@ -13,6 +14,7 @@ struct GlobalTask : Identifiable {
     var title = "Не названа"
     var description = "Отсутствует"
     var deadline = "Не назначен"
+    var createdDate : Timestamp!
     var isFinished = false
 }
 
@@ -20,16 +22,18 @@ class GlobalTasksDataModel : ObservableObject {
     @Published var globalTasks = [GlobalTask]()
     
     func fetchData() {
-        db.collection("global_tasks").getDocuments() { (querySnapshot, err) in
+        db.collection("global_tasks").addSnapshotListener { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
+                self.globalTasks.removeAll()
                 for document in querySnapshot!.documents {
                     var newTask = GlobalTask()
                     newTask.id = document.documentID
                     newTask.title = document["title"] as! String
                     newTask.description = document["descr"] as! String
                     newTask.deadline = document["deadline"] as! String
+                    newTask.createdDate = document["createdDate"] as! Timestamp
                     newTask.isFinished = document["isFinished"] as! Bool
                     self.globalTasks.append(newTask)
                 }
