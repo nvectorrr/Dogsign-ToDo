@@ -11,7 +11,7 @@ import SwiftUI
 struct Dogsign_ToDoApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            WelcomeView()
         }
     }
 }
