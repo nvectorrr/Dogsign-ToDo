@@ -61,8 +61,4 @@ class GlobalTasksDataModel : ObservableObject {
     func sortBy() {
         globalTasks = globalTasks.sorted(by: {$0.localCrDate.compare($1.localCrDate) == .orderedDescending})
     }
-    
-    func removeAnotherUsers() {
-        
-    }
 }

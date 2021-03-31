@@ -10,6 +10,7 @@ import SwiftUI
 struct WelcomeView : View {
     private let tabs = ["Task List", "Projects", "Future Projects", "Content Plan", "Calendar"]
     @State private var selectedTab = 0
+    
     var body : some View {
         VStack {
             HStack {
@@ -32,10 +33,6 @@ struct WelcomeView : View {
             }
         }
         .frame(width: 600, height: 500)
-    }
-    
-    func addItem() {
-        
     }
 }
 

@@ -18,8 +18,17 @@ struct TaskListTab: View, ActionNotifier {
     
     var body : some View {
         VStack {
+            HStack {
+                Text("User: \(globalUser)")
+                    .font(.system(size: 14))
+                Spacer()
+                Button(action: reloadData) {
+                    Label("", systemImage: "arrow.clockwise")
+                }
+                .buttonStyle(PlainButtonStyle())
+            }
+            .padding(.horizontal, 25)
             DropdownTaskCreator(notifier: self, title: "Label", option1: "Red", option2: "Yellow", option3: "Green")
-            
             List (globalTasksData.globalTasks) { globalTask in
                 TaskView(id: globalTask.id, title: globalTask.title, description: globalTask.description, notifier: self, isChecked: intToBool(num: globalTask.isFinished))
             }
@@ -44,6 +53,10 @@ struct TaskListTab: View, ActionNotifier {
     
     func reloadData() {
         self.globalTasksData.fetchData()
+    }
+    
+    func forceRefreshButtonAction() {
+        
     }
 }
 
