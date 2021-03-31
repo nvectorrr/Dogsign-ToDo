@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct TaskView: View {
+    var id : String
     var title : String
     var person : String
     var description : String
+    var notifier : ActionNotifier
     @State var isChecked : Bool
     
     var body: some View {
@@ -40,11 +42,14 @@ struct TaskView: View {
         } else {
             isChecked = true
         }
+        self.notifier.recievedNotificationFromCell(cellId: self.id)
     }
 }
 
+/*
 struct TaskView_Previews: PreviewProvider {
     static var previews: some View {
         TaskView(title: "lol", person: "Marina Sokolova", description: "lorem ipsum dorem alalald kurwa rot twou", isChecked: false)
     }
 }
+*/

@@ -15,14 +15,14 @@ struct GlobalTask : Identifiable {
     var description = "Отсутствует"
     var deadline = "Не назначен"
     var createdDate : Timestamp!
-    var isFinished = false
+    var isFinished = 0
 }
 
 class GlobalTasksDataModel : ObservableObject {
     @Published var globalTasks = [GlobalTask]()
     
     func fetchData() {
-        db.collection("global_tasks").addSnapshotListener { (querySnapshot, err) in
+        db.collection("global_tasks").getDocuments { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -34,7 +34,7 @@ class GlobalTasksDataModel : ObservableObject {
                     newTask.description = document["descr"] as! String
                     newTask.deadline = document["deadline"] as! String
                     newTask.createdDate = document["createdDate"] as! Timestamp
-                    newTask.isFinished = document["isFinished"] as! Bool
+                    newTask.isFinished = document["isFinished"] as! Int
                     self.globalTasks.append(newTask)
                 }
             }

@@ -53,7 +53,7 @@ struct DropdownTaskCreator : View {
     }
     
     func addNewGlobalTask() {
-        db.collection("global_tasks").addDocument(data: ["title" : newTask, "descr" : newDescr, "deadline" : newDeadline, "isFinished" : false, "createdDate" : currDateToTimestamp()]) { err in
+        db.collection("global_tasks").addDocument(data: ["title" : newTask, "descr" : newDescr, "deadline" : newDeadline, "isFinished" : 0, "createdDate" : currDateToTimestamp()]) { err in
             if let err = err {
                 print("Error writing document: \(err)")
             } else {
