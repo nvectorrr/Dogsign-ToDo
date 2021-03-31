@@ -30,6 +30,8 @@ struct ProjectsTab : View {
 }
 
 struct CurrentProject : View, ActionNotifier {
+    
+    func reloadData() {}
     func recievedNotificationFromCell(cellId: String) {}
     
     var proj_name : String
@@ -38,7 +40,7 @@ struct CurrentProject : View, ActionNotifier {
         List {
             Section(header: Text(proj_name).font(.system(size: 36))) {
                 ForEach(0 ..< testTaskForProjList.count) {
-                    TaskView(id: "otjebisb", title: testTaskForProjList[$0], person: "person", description: "descr", notifier: self, isChecked: false)
+                    TaskView(id: "otjebisb", title: testTaskForProjList[$0], description: "descr", notifier: self, isChecked: false)
                 }
             }
         }

@@ -10,7 +10,6 @@ import SwiftUI
 struct TaskView: View {
     var id : String
     var title : String
-    var person : String
     var description : String
     var notifier : ActionNotifier
     @State var isChecked : Bool
@@ -27,8 +26,8 @@ struct TaskView: View {
             VStack (alignment: .leading) {
                 Text(title)
                     .font(.system(size: 20))
-                Text("Assigned to: " + person)
-                    .font(.system(size: 14))
+                //Text("Assigned to: " + person)
+                  //  .font(.system(size: 14))
                 Text(description)
                     .font(.system(size: 14))
             }

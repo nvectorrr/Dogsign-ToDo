@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DropdownTaskCreator : View {
+    var notifier : ActionNotifier
     var title : String
     var option1 : String
     var option2 : String
@@ -17,6 +18,8 @@ struct DropdownTaskCreator : View {
     @State var newTask = ""
     @State var newDescr = ""
     @State var newDeadline = ""
+    @State var newAssignedProj = ""
+    @State var newAssignedTo = ""
     
     var body: some View {
         
@@ -34,6 +37,8 @@ struct DropdownTaskCreator : View {
                     }
                     TextField("Description", text: $newDescr)
                     TextField("Deadline", text: $newDeadline)
+                    TextField("Assigned project", text: $newAssignedProj)
+                    TextField("Assigned user", text: $newAssignedTo)
                     Button(action: addNewGlobalTask) {
                         Label("Add Item", systemImage: "plus")
                     }
@@ -53,7 +58,7 @@ struct DropdownTaskCreator : View {
     }
     
     func addNewGlobalTask() {
-        db.collection("global_tasks").addDocument(data: ["title" : newTask, "descr" : newDescr, "deadline" : newDeadline, "isFinished" : 0, "createdDate" : currDateToTimestamp()]) { err in
+        db.collection("tasks_feed").addDocument(data: ["title" : newTask, "descr" : newDescr, "deadline" : newDeadline, "isFinished" : 0, "createdDate" : currDateToTimestamp(), "assigned_user" : newAssignedTo, "taskRelatedData" : "none", "assigned_project" : newAssignedProj]) { err in
             if let err = err {
                 print("Error writing document: \(err)")
             } else {
@@ -61,12 +66,19 @@ struct DropdownTaskCreator : View {
             }
         }
         self.newTask = ""
+        self.newDescr = ""
+        self.newDeadline = ""
+        self.newAssignedProj = ""
+        self.newAssignedTo = ""
         self.expand.toggle()
+        self.notifier.reloadData()
     }
 }
 
+/*
 struct DropdownTaskCreator_Previews: PreviewProvider {
     static var previews: some View {
-        DropdownTaskCreator(title: "Label", option1: "Red", option2: "Yellow", option3: "Green")
+        DropdownTaskCreator(notifier: self, title: "Label", option1: "Red", option2: "Yellow", option3: "Green")
     }
 }
+ */

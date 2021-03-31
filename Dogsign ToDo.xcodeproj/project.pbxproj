@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		77618F982614772200407F46 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77618F972614772200407F46 /* UserSettings.swift */; };
 		7762633E2613DAB200816214 /* Convertions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7762633D2613DAB200816214 /* Convertions.swift */; };
 		77F0C3D426132C29007F0559 /* Dogsign_ToDoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F0C3D326132C29007F0559 /* Dogsign_ToDoApp.swift */; };
 		77F0C3D826132C2C007F0559 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77F0C3D726132C2C007F0559 /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		62FD8AF11A626BC943B90E91 /* Pods-Dogsign ToDo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dogsign ToDo.debug.xcconfig"; path = "Target Support Files/Pods-Dogsign ToDo/Pods-Dogsign ToDo.debug.xcconfig"; sourceTree = "<group>"; };
+		77618F972614772200407F46 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		7762633D2613DAB200816214 /* Convertions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Convertions.swift; sourceTree = "<group>"; };
 		77F0C3D026132C29007F0559 /* Dogsign ToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dogsign ToDo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77F0C3D326132C29007F0559 /* Dogsign_ToDoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dogsign_ToDoApp.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			children = (
 				77F0C4592613799E007F0559 /* GlobalTasks.swift */,
 				77F0C45C26137B18007F0559 /* FirestoreManager.swift */,
+				77618F972614772200407F46 /* UserSettings.swift */,
 			);
 			path = "Data Models";
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				77F0C4C52613CA23007F0559 /* DropdownTaskCreator.swift in Sources */,
 				77F0C41326133468007F0559 /* TaskListTab.swift in Sources */,
 				77F0C45D26137B18007F0559 /* FirestoreManager.swift in Sources */,
+				77618F982614772200407F46 /* UserSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
