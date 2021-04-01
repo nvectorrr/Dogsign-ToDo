@@ -22,7 +22,6 @@ struct DropdownTaskCreator : View {
     @State var newAssignedTo = ""
     
     var body: some View {
-        
         VStack(spacing: 10) {
             if expand {
                 VStack {

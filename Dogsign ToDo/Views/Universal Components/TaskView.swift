@@ -31,6 +31,13 @@ struct TaskView: View {
                 Text(description)
                     .font(.system(size: 14))
             }
+            
+            Button(action: editTaskController) {
+                Image(systemName: "gearshape")
+                    .resizable()
+                    .frame(width: 15, height: 15)
+            }
+            .buttonStyle(PlainButtonStyle())
         }
         .padding(.all, 15)
     }
@@ -42,6 +49,10 @@ struct TaskView: View {
             isChecked = true
         }
         self.notifier.recievedNotificationFromCell(cellId: self.id)
+    }
+    
+    func editTaskController() {
+        self.notifier.recievedEditingNotificationFromCell(cellId: self.id)
     }
 }
 

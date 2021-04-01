@@ -30,7 +30,7 @@ struct ProjectsTab : View {
 }
 
 struct CurrentProject : View, ActionNotifier {
-    
+    func recievedEditingNotificationFromCell(cellId: String) {}
     func reloadData() {}
     func recievedNotificationFromCell(cellId: String) {}
     
