@@ -40,6 +40,8 @@ struct TaskView: View {
             .buttonStyle(PlainButtonStyle())
         }
         .padding(.all, 15)
+        .background(Color(NSColor.darkGray))
+        .cornerRadius(18.0)
     }
     
     func checkboxController() {

@@ -26,7 +26,7 @@ class GlobalTasksDataModel : ObservableObject {
     @Published var globalTasks = [GlobalTask]()
     
     func fetchData() {
-        db.collection("tasks_feed").getDocuments { (querySnapshot, err) in
+        db.collection("tasks_feed").addSnapshotListener { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
