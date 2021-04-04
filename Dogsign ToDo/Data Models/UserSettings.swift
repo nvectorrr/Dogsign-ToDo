@@ -22,7 +22,7 @@ struct UserData {
 }
 
 class UserDataModel : ObservableObject {
-    @Published var isAuth = false
+    @Published var isAuth = 0
     
     var currentUser = UserData()
     var usersList = [UserData]()
@@ -41,8 +41,6 @@ class UserDataModel : ObservableObject {
     
     func validateUser() -> Bool {
         
-        uniPrinter()
-        
         let dir = FileManager.default.homeDirectoryForCurrentUser
         let filepath = dir.appendingPathComponent(".dogsignData")
         print(filepath)
@@ -52,6 +50,7 @@ class UserDataModel : ObservableObject {
                 return true
             }
         } catch {
+            isAuth = 2
             print("catch")
         }
         return false
@@ -60,7 +59,6 @@ class UserDataModel : ObservableObject {
     func parseLocalData(dataString: String) -> [String] {
         var parsedData = [String]()
         parsedData = dataString.components(separatedBy: ";")
-        print("from file: \(parsedData[0]), \(parsedData[1])")
        
         return parsedData
     }
@@ -79,7 +77,7 @@ class UserDataModel : ObservableObject {
                     self.usersList.append(newUser)
                 }
                 if self.validateUser() {
-                    self.isAuth = true
+                    self.isAuth = 1
                 }
             }
         }
@@ -88,12 +86,36 @@ class UserDataModel : ObservableObject {
     func isUserExists(localData: [String]) -> Bool {
         for i in 0 ..< usersList.count {
             if(usersList[i].login == localData[0] && usersList[i].password == localData[1]) {
-                
-                print("match!")
-                
                 return true
             }
         }
         return false
+    }
+    
+    func loginAction(login: String, pass: String) -> Bool {
+        for i in 0 ..< usersList.count {
+            if(usersList[i].login == login && usersList[i].password == pass) {
+                isAuth = 1
+                let str = login + ";" + pass + ";"
+                saveLogonDataLocally(str: str)
+                return true
+            }
+        }
+        return false
+    }
+    
+    func saveLogonDataLocally(str: String) {
+        let dir = FileManager.default.homeDirectoryForCurrentUser
+        let filepath = dir.appendingPathComponent(".dogsignData")
+        
+        if (FileManager.default.createFile(atPath: filepath.path, contents: nil, attributes: nil)) {
+            do {
+                try str.write(to: filepath, atomically: true, encoding: String.Encoding.utf8)
+            } catch {
+                print("catch")
+            }
+        } else {
+            print("File not created.")
+        }
     }
 }
