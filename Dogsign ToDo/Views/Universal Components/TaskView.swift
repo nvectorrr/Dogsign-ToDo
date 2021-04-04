@@ -10,7 +10,13 @@ import SwiftUI
 struct TaskView: View {
     var id : String
     var title : String
+    var project : String
     var description : String
+    var deadline : String
+    var assignedUser : String
+    var taskRelatedData : String
+    var important : Int
+    var localCrDate : Date
     var notifier : ActionNotifier
     @State var isChecked : Bool
     
@@ -26,11 +32,13 @@ struct TaskView: View {
             VStack (alignment: .leading) {
                 Text(title)
                     .font(.system(size: 20))
-                //Text("Assigned to: " + person)
-                  //  .font(.system(size: 14))
                 Text(description)
                     .font(.system(size: 14))
             }
+            
+            RoundedRectangle(cornerRadius: 25)
+                .fill(defineColor())
+                .frame(width: 5)
             
             Button(action: editTaskController) {
                 Image(systemName: "gearshape")
@@ -55,6 +63,16 @@ struct TaskView: View {
     
     func editTaskController() {
         self.notifier.recievedEditingNotificationFromCell(cellId: self.id)
+    }
+    
+    func defineColor() -> Color {
+        switch important {
+        case 0: return Color.gray
+        case 1: return Color.green
+        case 2: return Color.blue
+        case 3: return Color.red
+        default: return Color.white
+        }
     }
 }
 

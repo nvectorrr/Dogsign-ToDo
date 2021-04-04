@@ -15,7 +15,6 @@ struct Dogsign_ToDoApp: App {
         
         let fsMgr = FirebaseManager()
         fsMgr.startFirebase()
-        userManager.fetchUsers()
     }
     
     var body: some Scene {

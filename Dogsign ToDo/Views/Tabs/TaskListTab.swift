@@ -29,7 +29,7 @@ struct TaskListTab: View, ActionNotifier, EditorNotifier {
         if editingMode {
             VStack {
                 HStack {
-                    Text("User: \(globalUser)")
+                    Text("User: \(currentUser.name)")
                         .font(.system(size: 14))
                     Spacer()
                     Button(action: reloadData) {
@@ -41,15 +41,15 @@ struct TaskListTab: View, ActionNotifier, EditorNotifier {
                 DropdownTaskCreator(notifier: self, title: "Label", option1: "Red", option2: "Yellow", option3: "Green")
                 HStack {
                     List (globalTasksData.globalTasks) { globalTask in
-                        TaskView(id: globalTask.id, title: globalTask.title, description: globalTask.description, notifier: self, isChecked: intToBool(num: globalTask.isFinished))
+                        TaskView(id: globalTask.id, title: globalTask.title, project: globalTask.project, description: globalTask.description, deadline: globalTask.deadline, assignedUser: globalTask.assignedUser, taskRelatedData: globalTask.taskRelatedData, important: globalTask.important, localCrDate: globalTask.localCrDate, notifier: self, isChecked: intToBool(num: globalTask.isFinished))
                     }
-                    TaskEditorView(notifier: self, title: globalTasksData.globalTasks[taskForEditing].title, descr: globalTasksData.globalTasks[taskForEditing].description, deadline: globalTasksData.globalTasks[taskForEditing].deadline, stitle: globalTasksData.globalTasks[taskForEditing].title, sdescr: globalTasksData.globalTasks[taskForEditing].description, sdeadline: globalTasksData.globalTasks[taskForEditing].deadline)
+                    TaskEditorView(notifier: self, title: globalTasksData.globalTasks[taskForEditing].title, project: globalTasksData.globalTasks[taskForEditing].project, description: globalTasksData.globalTasks[taskForEditing].description, deadline: globalTasksData.globalTasks[taskForEditing].deadline, assignedUser: globalTasksData.globalTasks[taskForEditing].assignedUser, taskRelatedData: globalTasksData.globalTasks[taskForEditing].taskRelatedData, important: globalTasksData.globalTasks[taskForEditing].important, stitle: globalTasksData.globalTasks[taskForEditing].title, sproject: globalTasksData.globalTasks[taskForEditing].project, sdescr: globalTasksData.globalTasks[taskForEditing].description, sdeadline: globalTasksData.globalTasks[taskForEditing].deadline, sassignedUser: globalTasksData.globalTasks[taskForEditing].assignedUser, sassignedUserName: defineUserNameViaLogin(log: globalTasksData.globalTasks[taskForEditing].assignedUser), stackRelatedData: globalTasksData.globalTasks[taskForEditing].taskRelatedData, simportant: globalTasksData.globalTasks[taskForEditing].important)
                 }
             }
         } else {
             VStack {
                 HStack {
-                    Text("User: \(globalUser)")
+                    Text("User: \(currentUser.name)")
                         .font(.system(size: 14))
                     Spacer()
                     Button(action: reloadData) {
@@ -60,7 +60,7 @@ struct TaskListTab: View, ActionNotifier, EditorNotifier {
                 .padding(.horizontal, 25)
                 DropdownTaskCreator(notifier: self, title: "Label", option1: "Red", option2: "Yellow", option3: "Green")
                 List (globalTasksData.globalTasks) { globalTask in
-                    TaskView(id: globalTask.id, title: globalTask.title, description: globalTask.description, notifier: self, isChecked: intToBool(num: globalTask.isFinished))
+                    TaskView(id: globalTask.id, title: globalTask.title, project: globalTask.project, description: globalTask.description, deadline: globalTask.deadline, assignedUser: globalTask.assignedUser, taskRelatedData: globalTask.taskRelatedData, important: globalTask.important, localCrDate: globalTask.localCrDate, notifier: self, isChecked: intToBool(num: globalTask.isFinished))
                 }
                 .onAppear() {
                     self.globalTasksData.fetchData()
@@ -102,6 +102,15 @@ struct TaskListTab: View, ActionNotifier, EditorNotifier {
     func closeEditor() {
         taskForEditing = -1
         self.editingMode.toggle()
+    }
+    
+    func defineUserNameViaLogin(log: String) -> String {
+        for i in 0 ..< usersData.count {
+            if(log == usersData[i].login) {
+                return usersData[i].name
+            }
+        }
+        return "Undefined"
     }
 }
 

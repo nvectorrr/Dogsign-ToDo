@@ -38,11 +38,11 @@ struct CurrentProject : View, ActionNotifier {
     
     var body : some View {
         List {
-            Section(header: Text(proj_name).font(.system(size: 36))) {
-                ForEach(0 ..< testTaskForProjList.count) {
-                    TaskView(id: "otjebisb", title: testTaskForProjList[$0], description: "descr", notifier: self, isChecked: false)
-                }
-            }
+            //Section(header: Text(proj_name).font(.system(size: 36))) {
+              //  ForEach(0 ..< testTaskForProjList.count) {
+                    //TaskView(id: "otjebisb", title: testTaskForProjList[$0], description: "descr", notifier: self, isChecked: false)
+                //}
+            //}
         }
     }
 }

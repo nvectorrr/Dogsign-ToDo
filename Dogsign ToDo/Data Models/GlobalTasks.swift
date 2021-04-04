@@ -19,6 +19,7 @@ struct GlobalTask : Identifiable {
     var isFinished = 0
     var assignedUser = "Не назначен"
     var taskRelatedData = "Отсутствует"
+    var important = 0
     var localCrDate = Date()
 }
 
@@ -42,10 +43,9 @@ class GlobalTasksDataModel : ObservableObject {
                     newTask.assignedUser = document["assigned_user"] as! String
                     newTask.taskRelatedData = document["taskRelatedData"] as! String
                     newTask.isFinished = document["isFinished"] as! Int
+                    newTask.important = document["important"] as! Int
                     
-                    print(newTask.title + " : " + newTask.assignedUser)
-                    
-                    if(newTask.assignedUser == globalUser || globalUser == "super") {
+                    if (currentUser.accessLevel < 2 || currentUser.login == newTask.assignedUser) {
                         if(newTask.isFinished != 1) {
                             newTask.localCrDate = newTask.createdDate.dateValue()
                             self.globalTasks.append(newTask)
@@ -53,7 +53,6 @@ class GlobalTasksDataModel : ObservableObject {
                     }
                 }
                 self.sortBy()
-                print(self.globalTasks)
             }
         }
     }

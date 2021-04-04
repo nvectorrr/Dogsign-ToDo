@@ -7,8 +7,8 @@
 
 import Foundation
 
-var globalUser = "super"
-var userManager = UserDataModel()
+var currentUser = UserData()
+var usersData = [UserData]()
 
 protocol AuthProtocol {
     func passAuth()
@@ -24,7 +24,6 @@ struct UserData {
 class UserDataModel : ObservableObject {
     @Published var isAuth = 0
     
-    var currentUser = UserData()
     var usersList = [UserData]()
     var notifier : AuthProtocol!
     
@@ -75,6 +74,9 @@ class UserDataModel : ObservableObject {
                     newUser.password = document["password"] as! String
                     newUser.accessLevel = document["access_level"] as! Int
                     self.usersList.append(newUser)
+                    if newUser.login != "super" {
+                        usersData.append(UserData(login: newUser.login, name: newUser.name, password: "hidden", accessLevel: newUser.accessLevel))
+                    }
                 }
                 if self.validateUser() {
                     self.isAuth = 1
@@ -86,6 +88,7 @@ class UserDataModel : ObservableObject {
     func isUserExists(localData: [String]) -> Bool {
         for i in 0 ..< usersList.count {
             if(usersList[i].login == localData[0] && usersList[i].password == localData[1]) {
+                currentUser = usersList[i]
                 return true
             }
         }
@@ -96,6 +99,7 @@ class UserDataModel : ObservableObject {
         for i in 0 ..< usersList.count {
             if(usersList[i].login == login && usersList[i].password == pass) {
                 isAuth = 1
+                currentUser = usersList[i]
                 let str = login + ";" + pass + ";"
                 saveLogonDataLocally(str: str)
                 return true
