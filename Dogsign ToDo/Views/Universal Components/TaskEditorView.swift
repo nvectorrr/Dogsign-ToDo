@@ -92,19 +92,19 @@ struct TaskEditorView: View {
     
     func applyChanges() {
         if(title != stitle) {
-            db.collection("tasks_feed").document(self.notifier.globalTasksData.globalTasks[self.notifier.taskForEditing].id).updateData(["title": stitle])
+            db.collection(tasksPath).document(self.notifier.globalTasksData.globalTasks[self.notifier.taskForEditing].id).updateData(["title": stitle])
         }
         if(description != sdescr) {
-            db.collection("tasks_feed").document(self.notifier.globalTasksData.globalTasks[self.notifier.taskForEditing].id).updateData(["descr": sdescr])
+            db.collection(tasksPath).document(self.notifier.globalTasksData.globalTasks[self.notifier.taskForEditing].id).updateData(["descr": sdescr])
         }
         if(deadline != sdeadline) {
-            db.collection("tasks_feed").document(self.notifier.globalTasksData.globalTasks[self.notifier.taskForEditing].id).updateData(["deadline": sdeadline])
+            db.collection(tasksPath).document(self.notifier.globalTasksData.globalTasks[self.notifier.taskForEditing].id).updateData(["deadline": sdeadline])
         }
         if(assignedUser != sassignedUser) {
-            db.collection("tasks_feed").document(self.notifier.globalTasksData.globalTasks[self.notifier.taskForEditing].id).updateData(["assigned_user": sassignedUser])
+            db.collection(tasksPath).document(self.notifier.globalTasksData.globalTasks[self.notifier.taskForEditing].id).updateData(["assigned_user": sassignedUser])
         }
         if(important != simportant) {
-            db.collection("tasks_feed").document(self.notifier.globalTasksData.globalTasks[self.notifier.taskForEditing].id).updateData(["important": simportant])
+            db.collection(tasksPath).document(self.notifier.globalTasksData.globalTasks[self.notifier.taskForEditing].id).updateData(["important": simportant])
         }
         closeEditor()
     }

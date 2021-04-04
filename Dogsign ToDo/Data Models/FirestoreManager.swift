@@ -9,6 +9,7 @@ import FirebaseCore
 import FirebaseFirestore
 
 var db : Firestore!
+let tasksPath = "tasks_feed"
 
 class FirebaseManager {
     func startFirebase() {
@@ -18,6 +19,5 @@ class FirebaseManager {
         db = Firestore.firestore()
     }
 }
-
 
 

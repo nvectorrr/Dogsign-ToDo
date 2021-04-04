@@ -78,7 +78,7 @@ struct TaskListTab: View, ActionNotifier, EditorNotifier {
     }
     
     func recievedNotificationFromCell(cellId: String) {
-        db.collection("tasks_feed").document(cellId).updateData(["isFinished": 1])
+        db.collection(tasksPath).document(cellId).updateData(["isFinished": 1])
         reloadData()
     }
     
