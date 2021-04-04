@@ -18,38 +18,75 @@ struct TaskView: View {
     var important : Int
     var localCrDate : Date
     var notifier : ActionNotifier
+    
     @State var isChecked : Bool
+    @State var showDetails = false
     
     var body: some View {
-        HStack (spacing: 25) {
-            Button(action: checkboxController) {
-                Image(systemName: isChecked ? "checkmark.square.fill" : "square")
-                    .resizable()
-                    .frame(width: 20, height: 20)
+        VStack {
+            HStack (spacing: 25) {
+                Button(action: checkboxController) {
+                    Image(systemName: isChecked ? "checkmark.square.fill" : "square")
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                }
+                .buttonStyle(PlainButtonStyle())
+                
+                VStack (alignment: .leading) {
+                    Text(title)
+                        .font(.system(size: 20))
+                    Text("Description: \(description)")
+                        .font(.system(size: 14))
+                    if showDetails {
+                        Text("Deadline: \(deadline)")
+                            .font(.system(size: 14))
+                        Text("Assigned project: \(project)")
+                            .font(.system(size: 14))
+                        Text("Assigned user: \(defineUserViaLogin(log: assignedUser))")
+                            .font(.system(size: 14))
+                        Text("Related data: \(taskRelatedData)")
+                            .font(.system(size: 14))
+                    }
+                }
+                
+                RoundedRectangle(cornerRadius: 25)
+                    .fill(defineColor())
+                    .frame(width: 5)
+                
+                Button(action: editTaskController) {
+                    Image(systemName: "gearshape")
+                        .resizable()
+                        .frame(width: 15, height: 15)
+                }
+                .buttonStyle(PlainButtonStyle())
             }
-            .buttonStyle(PlainButtonStyle())
             
-            VStack (alignment: .leading) {
-                Text(title)
-                    .font(.system(size: 20))
-                Text(description)
-                    .font(.system(size: 14))
+            if !showDetails {
+                HStack {
+                    Button(action: showDetailsAction) {
+                        Image(systemName: "chevron.down")
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                }
+                .padding(.vertical, 5)
+            } else {
+                HStack {
+                    Button(action: showDetailsAction) {
+                        Image(systemName: "chevron.up")
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    .padding(.vertical, 5)
+                }
             }
-            
-            RoundedRectangle(cornerRadius: 25)
-                .fill(defineColor())
-                .frame(width: 5)
-            
-            Button(action: editTaskController) {
-                Image(systemName: "gearshape")
-                    .resizable()
-                    .frame(width: 15, height: 15)
-            }
-            .buttonStyle(PlainButtonStyle())
         }
-        .padding(.all, 15)
+        .padding(.horizontal, 15)
+        .padding(.top, 15)
         .background(Color(NSColor.darkGray))
         .cornerRadius(18.0)
+    }
+    
+    func showDetailsAction() {
+        self.showDetails.toggle()
     }
     
     func checkboxController() {
