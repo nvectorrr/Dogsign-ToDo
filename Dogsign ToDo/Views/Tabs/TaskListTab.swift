@@ -39,7 +39,7 @@ struct TaskListTab: View, ActionNotifier, EditorNotifier {
                     .buttonStyle(PlainButtonStyle())
                 }
                 .padding(.horizontal, 25)
-                DropdownTaskCreator(notifier: self)
+                //DropdownTaskCreator(notifier: self)
                 HStack {
                     List (globalTasksData.currentUserTasks) { globalTask in
                         TaskView(id: globalTask.id, title: globalTask.title, project: globalTask.project, description: globalTask.description, deadline: globalTask.deadline, assignedUser: globalTask.assignedUser, taskRelatedData: globalTask.taskRelatedData, important: globalTask.important, localCrDate: globalTask.localCrDate, notifier: self, hideEditingMode: false, isChecked: intToBool(num: globalTask.isFinished))
@@ -59,7 +59,7 @@ struct TaskListTab: View, ActionNotifier, EditorNotifier {
                     .buttonStyle(PlainButtonStyle())
                 }
                 .padding(.horizontal, 25)
-                DropdownTaskCreator(notifier: self)
+                //DropdownTaskCreator(notifier: self)
                 List (globalTasksData.currentUserTasks) { globalTask in
                     TaskView(id: globalTask.id, title: globalTask.title, project: globalTask.project, description: globalTask.description, deadline: globalTask.deadline, assignedUser: globalTask.assignedUser, taskRelatedData: globalTask.taskRelatedData, important: globalTask.important, localCrDate: globalTask.localCrDate, notifier: self, hideEditingMode: false, isChecked: intToBool(num: globalTask.isFinished))
                 }

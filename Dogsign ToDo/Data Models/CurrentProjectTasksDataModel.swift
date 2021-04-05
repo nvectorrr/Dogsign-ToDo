@@ -31,10 +31,8 @@ class CurrentProjectTaskDataModel : ObservableObject {
                     newTask.important = document["important"] as! Int
                     
                     if(newTask.project == project) {
-                        if(newTask.isFinished != 1) {
-                            newTask.localCrDate = newTask.createdDate.dateValue()
-                            self.currentProjectTasks.append(newTask)
-                        }
+                        newTask.localCrDate = newTask.createdDate.dateValue()
+                        self.currentProjectTasks.append(newTask)
                     }
                 }
                 self.sortBy()

@@ -13,6 +13,8 @@ struct Auth : View  {
     @State var pass = ""
     @State var uncorrectLabel = false
     
+    var bundle = Bundle()
+    
     var body : some View {
         if viewModel.isAuth == 1 {
             WelcomeView()

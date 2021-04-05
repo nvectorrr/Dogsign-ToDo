@@ -9,16 +9,37 @@ import SwiftUI
 
 struct ProjectsTab : View {
     @ObservedObject var projectsData = ProjectsDataModel()
+    @State var addProject = false
+    @State var newProjName = ""
     
     var body: some View {
         HStack {
             NavigationView {
-                List (projectsData.projectsData) { project in
-                    NavigationLink(destination: CurrentProject(proj_name: project.name)) {
-                        Text(project.name)
+                VStack {
+                    List (projectsData.projectsData) { project in
+                        NavigationLink(destination: CurrentProject(proj_name: project.name)) {
+                            Text(project.name)
+                        }
+                    }
+                    .listStyle(SidebarListStyle())
+                    Divider()
+                    Button(action: createNewProject) {
+                        if !addProject {
+                            Label("New project", systemImage: "plus")
+                        } else {
+                            Label("Cancel", systemImage: "minus")
+                        }
+                    }
+                    if (addProject) {
+                        VStack {
+                            TextField("New project", text:$newProjName)
+                            Button(action: postNewProj) {
+                                Text("Add")
+                            }
+                        }
                     }
                 }
-                .listStyle(SidebarListStyle())
+                .padding(.vertical, 10)
             }
         }
         .onAppear() {
@@ -26,7 +47,22 @@ struct ProjectsTab : View {
         }
     }
     
-    func createNewProject() {}
+    func createNewProject() {
+        self.addProject.toggle()
+    }
+    
+    func postNewProj() {
+        db.collection(currentProjectsPath).addDocument(data: ["name" : newProjName, "createdDate" : currDateToTimestamp()]) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("Document successfully written!")
+            }
+        }
+        
+        self.newProjName = ""
+        self.addProject.toggle()
+    }
 }
 
 /*

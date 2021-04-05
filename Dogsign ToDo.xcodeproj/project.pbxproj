@@ -12,6 +12,7 @@
 		770EA444261A7B5B00528EBA /* CurrentProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770EA443261A7B5B00528EBA /* CurrentProject.swift */; };
 		770EA46B261A91A700528EBA /* CurrentProjectTasksDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770EA46A261A91A700528EBA /* CurrentProjectTasksDataModel.swift */; };
 		770EA47E261B160F00528EBA /* FinishedTasksTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770EA47D261B160F00528EBA /* FinishedTasksTab.swift */; };
+		770EA481261B2AAE00528EBA /* BundleInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770EA480261B2AAE00528EBA /* BundleInfo.swift */; };
 		77618F982614772200407F46 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77618F972614772200407F46 /* UserSettings.swift */; };
 		77618F9B2615E18D00407F46 /* TaskEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77618F9A2615E18D00407F46 /* TaskEditorView.swift */; };
 		77618FB0261750C100407F46 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77618FAF261750C100407F46 /* Auth.swift */; };
@@ -38,6 +39,7 @@
 		770EA443261A7B5B00528EBA /* CurrentProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentProject.swift; sourceTree = "<group>"; };
 		770EA46A261A91A700528EBA /* CurrentProjectTasksDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentProjectTasksDataModel.swift; sourceTree = "<group>"; };
 		770EA47D261B160F00528EBA /* FinishedTasksTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedTasksTab.swift; sourceTree = "<group>"; };
+		770EA480261B2AAE00528EBA /* BundleInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleInfo.swift; sourceTree = "<group>"; };
 		77618F972614772200407F46 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		77618F9A2615E18D00407F46 /* TaskEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorView.swift; sourceTree = "<group>"; };
 		77618FAF261750C100407F46 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 			children = (
 				7762633D2613DAB200816214 /* Convertions.swift */,
 				770EA439261A44B800528EBA /* Definers.swift */,
+				770EA480261B2AAE00528EBA /* BundleInfo.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				770EA47E261B160F00528EBA /* FinishedTasksTab.swift in Sources */,
 				770EA46B261A91A700528EBA /* CurrentProjectTasksDataModel.swift in Sources */,
 				77F0C3E926132D64007F0559 /* WelcomeView.swift in Sources */,
+				770EA481261B2AAE00528EBA /* BundleInfo.swift in Sources */,
 				77618F9B2615E18D00407F46 /* TaskEditorView.swift in Sources */,
 				77F0C40F26133417007F0559 /* ErrorTab.swift in Sources */,
 				77F0C416261334A6007F0559 /* ProjectsTab.swift in Sources */,

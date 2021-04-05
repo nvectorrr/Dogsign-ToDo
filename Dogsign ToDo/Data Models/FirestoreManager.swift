@@ -11,6 +11,7 @@ import FirebaseFirestore
 var db : Firestore!
 let tasksPath = "tasks_feed_test"
 let currentProjectsPath = "current_projects"
+let requirementsPath = "requirements"
 
 class FirebaseManager {
     func startFirebase() {
