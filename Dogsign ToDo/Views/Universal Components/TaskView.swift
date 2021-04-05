@@ -18,6 +18,7 @@ struct TaskView: View {
     var important : Int
     var localCrDate : Date
     var notifier : ActionNotifier
+    var hideEditingMode : Bool
     
     @State var isChecked : Bool
     @State var showDetails = false
@@ -53,12 +54,14 @@ struct TaskView: View {
                     .fill(defineColor())
                     .frame(width: 5)
                 
-                Button(action: editTaskController) {
-                    Image(systemName: "gearshape")
-                        .resizable()
-                        .frame(width: 15, height: 15)
+                if !hideEditingMode {
+                    Button(action: editTaskController) {
+                        Image(systemName: "gearshape")
+                            .resizable()
+                            .frame(width: 15, height: 15)
+                    }
+                    .buttonStyle(PlainButtonStyle())
                 }
-                .buttonStyle(PlainButtonStyle())
             }
             
             if !showDetails {
@@ -90,16 +93,20 @@ struct TaskView: View {
     }
     
     func checkboxController() {
-        if isChecked == true {
-            isChecked = false
-        } else {
-            isChecked = true
+        if (currentUser.accessLevel < 2 || currentUser.login == assignedUser) {
+            if isChecked == true {
+                isChecked = false
+            } else {
+                isChecked = true
+            }
+            self.notifier.recievedNotificationFromCell(cellId: self.id)
         }
-        self.notifier.recievedNotificationFromCell(cellId: self.id)
     }
     
     func editTaskController() {
-        self.notifier.recievedEditingNotificationFromCell(cellId: self.id)
+        if (currentUser.accessLevel < 2 || currentUser.login == assignedUser) {
+            self.notifier.recievedEditingNotificationFromCell(cellId: self.id)
+        }
     }
     
     func defineColor() -> Color {

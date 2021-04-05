@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WelcomeView : View {
-    private let tabs = ["Task List", "Projects", "Future Projects", "Content Plan", "Calendar"]
+    private let tabs = ["Task List", "Projects", "Future Projects", "Content Plan", "Calendar", "Finished"]
     @State private var selectedTab = 0
     
     var body : some View {
@@ -46,6 +46,8 @@ struct DefineChildView : View {
             TaskListTab()
         case "Projects":
             ProjectsTab()
+        case "Finished":
+            FinishedTasksTab()
         default:
             ErrorTab()
         }

@@ -14,6 +14,7 @@ struct TaskEditorView: View {
     var description : String
     var deadline : String
     var assignedUser : String
+    var assignedProject : String
     var taskRelatedData : String
     var important : Int
 
@@ -23,6 +24,7 @@ struct TaskEditorView: View {
     @State var sdeadline = ""
     @State var sassignedUser = ""
     @State var sassignedUserName = ""
+    @State var sassignedProject = ""
     @State var stackRelatedData = ""
     @State var simportant = -1
     
@@ -41,6 +43,16 @@ struct TaskEditorView: View {
             TextField("\(title)", text: $stitle)
             TextField("\(description)", text: $sdescr)
             TextField("\(deadline)", text: $sdeadline)
+            
+            Menu {
+                ForEach(0 ..< projData.count) {i in
+                    Button (action: {sassignedProject = projData[i].name}) {
+                        Text(projData[i].name)
+                    }
+                }
+            } label: {
+                Text("Assigned project: \(sassignedProject)")
+            }
             
             Menu {
                 ForEach(0 ..< usersData.count) {i in
@@ -92,19 +104,22 @@ struct TaskEditorView: View {
     
     func applyChanges() {
         if(title != stitle) {
-            db.collection(tasksPath).document(self.notifier.globalTasksData.globalTasks[self.notifier.taskForEditing].id).updateData(["title": stitle])
+            db.collection(tasksPath).document(self.notifier.globalTasksData.currentUserTasks[self.notifier.taskForEditing].id).updateData(["title": stitle])
         }
         if(description != sdescr) {
-            db.collection(tasksPath).document(self.notifier.globalTasksData.globalTasks[self.notifier.taskForEditing].id).updateData(["descr": sdescr])
+            db.collection(tasksPath).document(self.notifier.globalTasksData.currentUserTasks[self.notifier.taskForEditing].id).updateData(["descr": sdescr])
         }
         if(deadline != sdeadline) {
-            db.collection(tasksPath).document(self.notifier.globalTasksData.globalTasks[self.notifier.taskForEditing].id).updateData(["deadline": sdeadline])
+            db.collection(tasksPath).document(self.notifier.globalTasksData.currentUserTasks[self.notifier.taskForEditing].id).updateData(["deadline": sdeadline])
         }
         if(assignedUser != sassignedUser) {
-            db.collection(tasksPath).document(self.notifier.globalTasksData.globalTasks[self.notifier.taskForEditing].id).updateData(["assigned_user": sassignedUser])
+            db.collection(tasksPath).document(self.notifier.globalTasksData.currentUserTasks[self.notifier.taskForEditing].id).updateData(["assigned_user": sassignedUser])
+        }
+        if(assignedProject != sassignedProject) {
+            db.collection(tasksPath).document(self.notifier.globalTasksData.currentUserTasks[self.notifier.taskForEditing].id).updateData(["assigned_project": sassignedProject])
         }
         if(important != simportant) {
-            db.collection(tasksPath).document(self.notifier.globalTasksData.globalTasks[self.notifier.taskForEditing].id).updateData(["important": simportant])
+            db.collection(tasksPath).document(self.notifier.globalTasksData.currentUserTasks[self.notifier.taskForEditing].id).updateData(["important": simportant])
         }
         closeEditor()
     }

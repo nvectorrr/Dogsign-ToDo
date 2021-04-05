@@ -25,6 +25,8 @@ struct GlobalTask : Identifiable {
 
 class GlobalTasksDataModel : ObservableObject {
     @Published var globalTasks = [GlobalTask]()
+    @Published var currentUserTasks = [GlobalTask]()
+    @Published var finishedCurrentUserTasks = [GlobalTask]()
     
     func fetchData() {
         db.collection(tasksPath).addSnapshotListener { (querySnapshot, err) in
@@ -32,6 +34,8 @@ class GlobalTasksDataModel : ObservableObject {
                 print("Error getting documents: \(err)")
             } else {
                 self.globalTasks.removeAll()
+                self.currentUserTasks.removeAll()
+                self.finishedCurrentUserTasks.removeAll()
                 for document in querySnapshot!.documents {
                     var newTask = GlobalTask()
                     newTask.id = document.documentID
@@ -44,9 +48,13 @@ class GlobalTasksDataModel : ObservableObject {
                     newTask.taskRelatedData = document["taskRelatedData"] as! String
                     newTask.isFinished = document["isFinished"] as! Int
                     newTask.important = document["important"] as! Int
+                    newTask.localCrDate = newTask.createdDate.dateValue()
                     
-                    if(newTask.isFinished != 1) {
-                        newTask.localCrDate = newTask.createdDate.dateValue()
+                    if(newTask.isFinished != 1 && currentUser.login == newTask.assignedUser) {
+                        self.currentUserTasks.append(newTask)
+                    } else if (newTask.isFinished == 1 && currentUser.login == newTask.assignedUser) {
+                        self.finishedCurrentUserTasks.append(newTask)
+                    } else {
                         self.globalTasks.append(newTask)
                     }
                 }
@@ -57,5 +65,7 @@ class GlobalTasksDataModel : ObservableObject {
     
     func sortBy() {
         globalTasks = globalTasks.sorted(by: {$0.localCrDate.compare($1.localCrDate) == .orderedDescending})
+        currentUserTasks = currentUserTasks.sorted(by: {$0.localCrDate.compare($1.localCrDate) == .orderedDescending})
+        finishedCurrentUserTasks = finishedCurrentUserTasks.sorted(by: {$0.localCrDate.compare($1.localCrDate) == .orderedDescending})
     }
 }

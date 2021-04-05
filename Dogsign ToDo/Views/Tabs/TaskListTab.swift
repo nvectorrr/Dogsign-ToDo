@@ -41,12 +41,10 @@ struct TaskListTab: View, ActionNotifier, EditorNotifier {
                 .padding(.horizontal, 25)
                 DropdownTaskCreator(notifier: self)
                 HStack {
-                    List (globalTasksData.globalTasks) { globalTask in
-                        if (globalTask.assignedUser == currentUser.login || currentUser.accessLevel < 2) {
-                            TaskView(id: globalTask.id, title: globalTask.title, project: globalTask.project, description: globalTask.description, deadline: globalTask.deadline, assignedUser: globalTask.assignedUser, taskRelatedData: globalTask.taskRelatedData, important: globalTask.important, localCrDate: globalTask.localCrDate, notifier: self, isChecked: intToBool(num: globalTask.isFinished))
-                        }
+                    List (globalTasksData.currentUserTasks) { globalTask in
+                        TaskView(id: globalTask.id, title: globalTask.title, project: globalTask.project, description: globalTask.description, deadline: globalTask.deadline, assignedUser: globalTask.assignedUser, taskRelatedData: globalTask.taskRelatedData, important: globalTask.important, localCrDate: globalTask.localCrDate, notifier: self, hideEditingMode: false, isChecked: intToBool(num: globalTask.isFinished))
                     }
-                    TaskEditorView(notifier: self, title: globalTasksData.globalTasks[taskForEditing].title, project: globalTasksData.globalTasks[taskForEditing].project, description: globalTasksData.globalTasks[taskForEditing].description, deadline: globalTasksData.globalTasks[taskForEditing].deadline, assignedUser: globalTasksData.globalTasks[taskForEditing].assignedUser, taskRelatedData: globalTasksData.globalTasks[taskForEditing].taskRelatedData, important: globalTasksData.globalTasks[taskForEditing].important, stitle: globalTasksData.globalTasks[taskForEditing].title, sproject: globalTasksData.globalTasks[taskForEditing].project, sdescr: globalTasksData.globalTasks[taskForEditing].description, sdeadline: globalTasksData.globalTasks[taskForEditing].deadline, sassignedUser: globalTasksData.globalTasks[taskForEditing].assignedUser, sassignedUserName: defineUserNameViaLogin(log: globalTasksData.globalTasks[taskForEditing].assignedUser), stackRelatedData: globalTasksData.globalTasks[taskForEditing].taskRelatedData, simportant: globalTasksData.globalTasks[taskForEditing].important)
+                    TaskEditorView(notifier: self, title: globalTasksData.currentUserTasks[taskForEditing].title, project: globalTasksData.currentUserTasks[taskForEditing].project, description: globalTasksData.currentUserTasks[taskForEditing].description, deadline: globalTasksData.currentUserTasks[taskForEditing].deadline, assignedUser: globalTasksData.currentUserTasks[taskForEditing].assignedUser, assignedProject: globalTasksData.currentUserTasks[taskForEditing].project, taskRelatedData: globalTasksData.currentUserTasks[taskForEditing].taskRelatedData, important: globalTasksData.currentUserTasks[taskForEditing].important, stitle: globalTasksData.currentUserTasks[taskForEditing].title, sproject: globalTasksData.currentUserTasks[taskForEditing].project, sdescr: globalTasksData.currentUserTasks[taskForEditing].description, sdeadline: globalTasksData.currentUserTasks[taskForEditing].deadline, sassignedUser: globalTasksData.currentUserTasks[taskForEditing].assignedUser, sassignedUserName: defineUserNameViaLogin(log: globalTasksData.currentUserTasks[taskForEditing].assignedUser), sassignedProject: globalTasksData.currentUserTasks[taskForEditing].project, stackRelatedData: globalTasksData.currentUserTasks[taskForEditing].taskRelatedData, simportant: globalTasksData.currentUserTasks[taskForEditing].important)
                 }
             }
         } else {
@@ -62,10 +60,8 @@ struct TaskListTab: View, ActionNotifier, EditorNotifier {
                 }
                 .padding(.horizontal, 25)
                 DropdownTaskCreator(notifier: self)
-                List (globalTasksData.globalTasks) { globalTask in
-                    if (globalTask.assignedUser == currentUser.login || currentUser.accessLevel < 1) {
-                        TaskView(id: globalTask.id, title: globalTask.title, project: globalTask.project, description: globalTask.description, deadline: globalTask.deadline, assignedUser: globalTask.assignedUser, taskRelatedData: globalTask.taskRelatedData, important: globalTask.important, localCrDate: globalTask.localCrDate, notifier: self, isChecked: intToBool(num: globalTask.isFinished))
-                    }
+                List (globalTasksData.currentUserTasks) { globalTask in
+                    TaskView(id: globalTask.id, title: globalTask.title, project: globalTask.project, description: globalTask.description, deadline: globalTask.deadline, assignedUser: globalTask.assignedUser, taskRelatedData: globalTask.taskRelatedData, important: globalTask.important, localCrDate: globalTask.localCrDate, notifier: self, hideEditingMode: false, isChecked: intToBool(num: globalTask.isFinished))
                 }
                 .onAppear() {
                     self.globalTasksData.fetchData()
@@ -85,8 +81,8 @@ struct TaskListTab: View, ActionNotifier, EditorNotifier {
     
     func recievedEditingNotificationFromCell(cellId: String) {
         var index = 0
-        while(index < globalTasksData.globalTasks.count) {
-            if(globalTasksData.globalTasks[index].id == cellId) {
+        while(index < globalTasksData.currentUserTasks.count) {
+            if(globalTasksData.currentUserTasks[index].id == cellId) {
                 taskForEditing = index
                 break
             } else {

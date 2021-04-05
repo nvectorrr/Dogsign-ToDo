@@ -22,7 +22,7 @@ struct CurrentProject : View, ActionNotifier {
             DropdownTaskCreator(notifier: self)
             List (projectTasks.currentProjectTasks) { globalTask in
                 if (globalTask.project == proj_name) {
-                    TaskView(id: globalTask.id, title: globalTask.title, project: globalTask.project, description: globalTask.description, deadline: globalTask.deadline, assignedUser: globalTask.assignedUser, taskRelatedData: globalTask.taskRelatedData, important: globalTask.important, localCrDate: globalTask.localCrDate, notifier: self, isChecked: intToBool(num: globalTask.isFinished))
+                    TaskView(id: globalTask.id, title: globalTask.title, project: globalTask.project, description: globalTask.description, deadline: globalTask.deadline, assignedUser: globalTask.assignedUser, taskRelatedData: globalTask.taskRelatedData, important: globalTask.important, localCrDate: globalTask.localCrDate, notifier: self, hideEditingMode: true, isChecked: intToBool(num: globalTask.isFinished))
                 }
             }
             .onAppear {
