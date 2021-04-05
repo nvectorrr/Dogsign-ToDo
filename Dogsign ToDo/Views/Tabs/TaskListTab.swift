@@ -21,6 +21,7 @@ protocol EditorNotifier {
 
 struct TaskListTab: View, ActionNotifier, EditorNotifier {
     @ObservedObject var globalTasksData = GlobalTasksDataModel()
+    @ObservedObject var projectsData = ProjectsDataModel()
     @State var newTask = ""
     @State var editingMode = false
     @State var taskForEditing = -1
@@ -41,7 +42,9 @@ struct TaskListTab: View, ActionNotifier, EditorNotifier {
                 DropdownTaskCreator(notifier: self)
                 HStack {
                     List (globalTasksData.globalTasks) { globalTask in
-                        TaskView(id: globalTask.id, title: globalTask.title, project: globalTask.project, description: globalTask.description, deadline: globalTask.deadline, assignedUser: globalTask.assignedUser, taskRelatedData: globalTask.taskRelatedData, important: globalTask.important, localCrDate: globalTask.localCrDate, notifier: self, isChecked: intToBool(num: globalTask.isFinished))
+                        if (globalTask.assignedUser == currentUser.login || currentUser.accessLevel < 2) {
+                            TaskView(id: globalTask.id, title: globalTask.title, project: globalTask.project, description: globalTask.description, deadline: globalTask.deadline, assignedUser: globalTask.assignedUser, taskRelatedData: globalTask.taskRelatedData, important: globalTask.important, localCrDate: globalTask.localCrDate, notifier: self, isChecked: intToBool(num: globalTask.isFinished))
+                        }
                     }
                     TaskEditorView(notifier: self, title: globalTasksData.globalTasks[taskForEditing].title, project: globalTasksData.globalTasks[taskForEditing].project, description: globalTasksData.globalTasks[taskForEditing].description, deadline: globalTasksData.globalTasks[taskForEditing].deadline, assignedUser: globalTasksData.globalTasks[taskForEditing].assignedUser, taskRelatedData: globalTasksData.globalTasks[taskForEditing].taskRelatedData, important: globalTasksData.globalTasks[taskForEditing].important, stitle: globalTasksData.globalTasks[taskForEditing].title, sproject: globalTasksData.globalTasks[taskForEditing].project, sdescr: globalTasksData.globalTasks[taskForEditing].description, sdeadline: globalTasksData.globalTasks[taskForEditing].deadline, sassignedUser: globalTasksData.globalTasks[taskForEditing].assignedUser, sassignedUserName: defineUserNameViaLogin(log: globalTasksData.globalTasks[taskForEditing].assignedUser), stackRelatedData: globalTasksData.globalTasks[taskForEditing].taskRelatedData, simportant: globalTasksData.globalTasks[taskForEditing].important)
                 }
@@ -60,20 +63,14 @@ struct TaskListTab: View, ActionNotifier, EditorNotifier {
                 .padding(.horizontal, 25)
                 DropdownTaskCreator(notifier: self)
                 List (globalTasksData.globalTasks) { globalTask in
-                    TaskView(id: globalTask.id, title: globalTask.title, project: globalTask.project, description: globalTask.description, deadline: globalTask.deadline, assignedUser: globalTask.assignedUser, taskRelatedData: globalTask.taskRelatedData, important: globalTask.important, localCrDate: globalTask.localCrDate, notifier: self, isChecked: intToBool(num: globalTask.isFinished))
+                    if (globalTask.assignedUser == currentUser.login || currentUser.accessLevel < 1) {
+                        TaskView(id: globalTask.id, title: globalTask.title, project: globalTask.project, description: globalTask.description, deadline: globalTask.deadline, assignedUser: globalTask.assignedUser, taskRelatedData: globalTask.taskRelatedData, important: globalTask.important, localCrDate: globalTask.localCrDate, notifier: self, isChecked: intToBool(num: globalTask.isFinished))
+                    }
                 }
                 .onAppear() {
                     self.globalTasksData.fetchData()
                 }
             }
-        }
-    }
-    
-    func intToBool(num : Int) -> Bool {
-        if num == 0 {
-            return false
-        } else {
-            return true
         }
     }
     

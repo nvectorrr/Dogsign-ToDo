@@ -35,7 +35,16 @@ struct DropdownTaskCreator : View {
                     
                     TextField("Description", text: $newDescr)
                     TextField("Deadline", text: $newDeadline)
-                    TextField("Assigned project", text: $newAssignedProj)
+                    
+                    Menu {
+                        ForEach(0 ..< projData.count) {i in
+                            Button (action: {newAssignedProj = projData[i].name}) {
+                                Text(projData[i].name)
+                            }
+                        }
+                    } label: {
+                        Text("Assigned project: \(newAssignedProj)")
+                    }
                     
                     Menu {
                         ForEach(0 ..< usersData.count) {i in
@@ -77,13 +86,14 @@ struct DropdownTaskCreator : View {
             } else {
                 HStack {
                     TextField("New task", text: $newTask)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
                     Button(action: {self.expand.toggle()}) {
                         Label("Add Item", systemImage: "plus")
                     }
                 }
             }
         }
-        .padding(10)
+        .padding(.horizontal, 10)
         .cornerRadius(15)
         .animation(.spring())
     }

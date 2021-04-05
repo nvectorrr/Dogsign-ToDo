@@ -7,48 +7,32 @@
 
 import SwiftUI
 
-var testProjects = ["Proj1", "Proj2", "Proj3"]
-var testTaskForProjList = ["task 1", "task 2", "task 3", "task  4", "task 4"]
-
 struct ProjectsTab : View {
+    @ObservedObject var projectsData = ProjectsDataModel()
+    
     var body: some View {
         HStack {
             NavigationView {
-                List(testProjects, id: \.self) { proj in
-                    NavigationLink(destination: CurrentProject(proj_name: proj)) {
-                        Text(proj)
+                List (projectsData.projectsData) { project in
+                    NavigationLink(destination: CurrentProject(proj_name: project.name)) {
+                        Text(project.name)
                     }
                 }
                 .listStyle(SidebarListStyle())
             }
         }
-    }
-    
-    func createNewProject() {
-        
-    }
-}
-
-struct CurrentProject : View, ActionNotifier {
-    func recievedEditingNotificationFromCell(cellId: String) {}
-    func reloadData() {}
-    func recievedNotificationFromCell(cellId: String) {}
-    
-    var proj_name : String
-    
-    var body : some View {
-        List {
-            //Section(header: Text(proj_name).font(.system(size: 36))) {
-              //  ForEach(0 ..< testTaskForProjList.count) {
-                    //TaskView(id: "otjebisb", title: testTaskForProjList[$0], description: "descr", notifier: self, isChecked: false)
-                //}
-            //}
+        .onAppear() {
+            self.projectsData.fetchData()
         }
     }
+    
+    func createNewProject() {}
 }
 
+/*
 struct ProjectsTab_Previews: PreviewProvider {
     static var previews: some View {
         ProjectsTab()
     }
 }
+ */

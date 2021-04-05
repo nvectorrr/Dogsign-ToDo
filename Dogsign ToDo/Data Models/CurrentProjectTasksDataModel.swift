@@ -1,37 +1,22 @@
 //
-//  GlobalTasks.swift
+//  CurrentProjectTasksDataModel.swift
 //  Dogsign ToDo
 //
-//  Created by Виктор  Найденович  on 30.03.2021.
+//  Created by Виктор  Найденович  on 05.04.2021.
 //
 
-import Combine
-import FirebaseFirestore
 import Foundation
+import FirebaseFirestore
 
-struct GlobalTask : Identifiable {
-    var id = ""
-    var title = "Не названа"
-    var project = "Не добавлен"
-    var description = "Отсутствует"
-    var deadline = "Не назначен"
-    var createdDate : Timestamp!
-    var isFinished = 0
-    var assignedUser = "Не назначен"
-    var taskRelatedData = "Отсутствует"
-    var important = 0
-    var localCrDate = Date()
-}
-
-class GlobalTasksDataModel : ObservableObject {
-    @Published var globalTasks = [GlobalTask]()
+class CurrentProjectTaskDataModel : ObservableObject {
+    @Published var currentProjectTasks = [GlobalTask]()
     
-    func fetchData() {
+    func fetchData(project: String) {
         db.collection(tasksPath).addSnapshotListener { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                self.globalTasks.removeAll()
+                self.currentProjectTasks.removeAll()
                 for document in querySnapshot!.documents {
                     var newTask = GlobalTask()
                     newTask.id = document.documentID
@@ -45,9 +30,11 @@ class GlobalTasksDataModel : ObservableObject {
                     newTask.isFinished = document["isFinished"] as! Int
                     newTask.important = document["important"] as! Int
                     
-                    if(newTask.isFinished != 1) {
-                        newTask.localCrDate = newTask.createdDate.dateValue()
-                        self.globalTasks.append(newTask)
+                    if(newTask.project == project) {
+                        if(newTask.isFinished != 1) {
+                            newTask.localCrDate = newTask.createdDate.dateValue()
+                            self.currentProjectTasks.append(newTask)
+                        }
                     }
                 }
                 self.sortBy()
@@ -56,6 +43,6 @@ class GlobalTasksDataModel : ObservableObject {
     }
     
     func sortBy() {
-        globalTasks = globalTasks.sorted(by: {$0.localCrDate.compare($1.localCrDate) == .orderedDescending})
+        currentProjectTasks = currentProjectTasks.sorted(by: {$0.localCrDate.compare($1.localCrDate) == .orderedDescending})
     }
 }
