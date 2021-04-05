@@ -96,7 +96,7 @@ struct TaskEditorView: View {
             }
             Spacer()
         }
-        .frame(width: 200)
+        .frame(width: 300)
         .padding(.horizontal, 10)
     }
     

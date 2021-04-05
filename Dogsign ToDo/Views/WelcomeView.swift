@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WelcomeView : View {
-    private let tabs = ["Task List", "Projects", "Future Projects", "Content Plan", "Calendar", "Finished"]
+    private let tabs = ["Task List", "Projects", "Future Projects", "Content Plan", "Calendar"/*хз наскок надо*/, "Finished"]
     @State private var selectedTab = 0
     
     var body : some View {

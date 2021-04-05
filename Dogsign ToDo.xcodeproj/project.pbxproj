@@ -40,6 +40,7 @@
 		770EA46A261A91A700528EBA /* CurrentProjectTasksDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentProjectTasksDataModel.swift; sourceTree = "<group>"; };
 		770EA47D261B160F00528EBA /* FinishedTasksTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedTasksTab.swift; sourceTree = "<group>"; };
 		770EA480261B2AAE00528EBA /* BundleInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleInfo.swift; sourceTree = "<group>"; };
+		770EA493261B91F000528EBA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		77618F972614772200407F46 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		77618F9A2615E18D00407F46 /* TaskEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorView.swift; sourceTree = "<group>"; };
 		77618FAF261750C100407F46 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
@@ -114,6 +115,7 @@
 				77F0C44626136B43007F0559 /* GoogleService-Info.plist */,
 				77F0C3DD26132C2C007F0559 /* Dogsign_ToDo.entitlements */,
 				77F0C3D926132C2C007F0559 /* Preview Content */,
+				770EA493261B91F000528EBA /* README.md */,
 			);
 			path = "Dogsign ToDo";
 			sourceTree = "<group>";
@@ -491,6 +493,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "naydenovich.viktor.Dogsign-ToDo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

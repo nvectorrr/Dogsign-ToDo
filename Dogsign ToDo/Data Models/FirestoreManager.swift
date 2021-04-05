@@ -9,7 +9,7 @@ import FirebaseCore
 import FirebaseFirestore
 
 var db : Firestore!
-let tasksPath = "tasks_feed_test"
+let tasksPath = "tasks_feed"
 let currentProjectsPath = "current_projects"
 let requirementsPath = "requirements"
 
