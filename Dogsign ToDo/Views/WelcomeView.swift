@@ -46,6 +46,8 @@ struct DefineChildView : View {
             TaskListTab()
         case "Projects":
             ProjectsTab()
+        case "Future Projects":
+            FutureProjectsTab()
         case "Finished":
             FinishedTasksTab()
         default:

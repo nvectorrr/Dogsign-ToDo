@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct FinishedTasksTab: View, ActionNotifier {
+    let type = "none"
     @ObservedObject var globalTasksData = GlobalTasksDataModel()
     
     var body: some View {

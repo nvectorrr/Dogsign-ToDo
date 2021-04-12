@@ -33,6 +33,7 @@ struct ProjectsTab : View {
                     if (addProject) {
                         VStack {
                             TextField("New project", text:$newProjName)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
                             Button(action: postNewProj) {
                                 Text("Add")
                             }

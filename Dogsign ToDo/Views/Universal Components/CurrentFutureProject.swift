@@ -1,15 +1,15 @@
 //
-//  CurrentProject.swift
+//  CurrentFutureProject.swift
 //  Dogsign ToDo
 //
-//  Created by Виктор  Найденович  on 05.04.2021.
+//  Created by Виктор  Найденович  on 12.04.2021.
 //
 
 import SwiftUI
 
-struct CurrentProject : View, ActionNotifier {
-    let type = "current"
-    @ObservedObject var projectTasks = CurrentProjectTaskDataModel()
+struct CurrentFutureProject : View, ActionNotifier {
+    let type = "future"
+    @ObservedObject var projectTasks = FutureProjectTaskDataModel()
     @State var newTask = ""
     @State var editingMode = false
     @State var taskForEditing = -1
@@ -36,11 +36,3 @@ struct CurrentProject : View, ActionNotifier {
     func recievedEditingNotificationFromCell(cellId: String) {}
     func reloadData() {}
 }
-
-/*
-struct CurrentProject_Previews: PreviewProvider {
-    static var previews: some View {
-        CurrentProject()
-    }
-}
-*/

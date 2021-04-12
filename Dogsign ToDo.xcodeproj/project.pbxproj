@@ -13,6 +13,11 @@
 		770EA46B261A91A700528EBA /* CurrentProjectTasksDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770EA46A261A91A700528EBA /* CurrentProjectTasksDataModel.swift */; };
 		770EA47E261B160F00528EBA /* FinishedTasksTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770EA47D261B160F00528EBA /* FinishedTasksTab.swift */; };
 		770EA481261B2AAE00528EBA /* BundleInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770EA480261B2AAE00528EBA /* BundleInfo.swift */; };
+		770EA496262462B200528EBA /* FutureProjectsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770EA495262462B200528EBA /* FutureProjectsTab.swift */; };
+		770EA4992624632C00528EBA /* FutureProjectsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770EA4982624632C00528EBA /* FutureProjectsDataModel.swift */; };
+		770EA49C262465D900528EBA /* FutureGlobalTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770EA49B262465D900528EBA /* FutureGlobalTasks.swift */; };
+		770EA49F2624668A00528EBA /* CurrentFutureProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770EA49E2624668A00528EBA /* CurrentFutureProject.swift */; };
+		770EA4A22624670500528EBA /* FutureProjectTasksDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770EA4A12624670500528EBA /* FutureProjectTasksDataModel.swift */; };
 		77618F982614772200407F46 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77618F972614772200407F46 /* UserSettings.swift */; };
 		77618F9B2615E18D00407F46 /* TaskEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77618F9A2615E18D00407F46 /* TaskEditorView.swift */; };
 		77618FB0261750C100407F46 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77618FAF261750C100407F46 /* Auth.swift */; };
@@ -41,6 +46,11 @@
 		770EA47D261B160F00528EBA /* FinishedTasksTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedTasksTab.swift; sourceTree = "<group>"; };
 		770EA480261B2AAE00528EBA /* BundleInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleInfo.swift; sourceTree = "<group>"; };
 		770EA493261B91F000528EBA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		770EA495262462B200528EBA /* FutureProjectsTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureProjectsTab.swift; sourceTree = "<group>"; };
+		770EA4982624632C00528EBA /* FutureProjectsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureProjectsDataModel.swift; sourceTree = "<group>"; };
+		770EA49B262465D900528EBA /* FutureGlobalTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureGlobalTasks.swift; sourceTree = "<group>"; };
+		770EA49E2624668A00528EBA /* CurrentFutureProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentFutureProject.swift; sourceTree = "<group>"; };
+		770EA4A12624670500528EBA /* FutureProjectTasksDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureProjectTasksDataModel.swift; sourceTree = "<group>"; };
 		77618F972614772200407F46 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		77618F9A2615E18D00407F46 /* TaskEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorView.swift; sourceTree = "<group>"; };
 		77618FAF261750C100407F46 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
@@ -158,6 +168,9 @@
 				77618F972614772200407F46 /* UserSettings.swift */,
 				770EA440261A764A00528EBA /* ProjectsDataModel.swift */,
 				770EA46A261A91A700528EBA /* CurrentProjectTasksDataModel.swift */,
+				770EA4982624632C00528EBA /* FutureProjectsDataModel.swift */,
+				770EA49B262465D900528EBA /* FutureGlobalTasks.swift */,
+				770EA4A12624670500528EBA /* FutureProjectTasksDataModel.swift */,
 			);
 			path = "Data Models";
 			sourceTree = "<group>";
@@ -168,6 +181,7 @@
 				77F0C41226133468007F0559 /* TaskListTab.swift */,
 				77F0C415261334A6007F0559 /* ProjectsTab.swift */,
 				770EA47D261B160F00528EBA /* FinishedTasksTab.swift */,
+				770EA495262462B200528EBA /* FutureProjectsTab.swift */,
 			);
 			path = Tabs;
 			sourceTree = "<group>";
@@ -179,6 +193,7 @@
 				77F0C4C42613CA23007F0559 /* DropdownTaskCreator.swift */,
 				77618F9A2615E18D00407F46 /* TaskEditorView.swift */,
 				770EA443261A7B5B00528EBA /* CurrentProject.swift */,
+				770EA49E2624668A00528EBA /* CurrentFutureProject.swift */,
 			);
 			path = "Universal Components";
 			sourceTree = "<group>";
@@ -309,17 +324,22 @@
 				7762633E2613DAB200816214 /* Convertions.swift in Sources */,
 				77F0C41A26134062007F0559 /* TaskView.swift in Sources */,
 				77F0C45A2613799E007F0559 /* GlobalTasks.swift in Sources */,
+				770EA49C262465D900528EBA /* FutureGlobalTasks.swift in Sources */,
+				770EA4A22624670500528EBA /* FutureProjectTasksDataModel.swift in Sources */,
 				770EA47E261B160F00528EBA /* FinishedTasksTab.swift in Sources */,
 				770EA46B261A91A700528EBA /* CurrentProjectTasksDataModel.swift in Sources */,
 				77F0C3E926132D64007F0559 /* WelcomeView.swift in Sources */,
 				770EA481261B2AAE00528EBA /* BundleInfo.swift in Sources */,
 				77618F9B2615E18D00407F46 /* TaskEditorView.swift in Sources */,
 				77F0C40F26133417007F0559 /* ErrorTab.swift in Sources */,
+				770EA496262462B200528EBA /* FutureProjectsTab.swift in Sources */,
 				77F0C416261334A6007F0559 /* ProjectsTab.swift in Sources */,
 				77F0C3D426132C29007F0559 /* Dogsign_ToDoApp.swift in Sources */,
 				770EA444261A7B5B00528EBA /* CurrentProject.swift in Sources */,
 				77F0C4C52613CA23007F0559 /* DropdownTaskCreator.swift in Sources */,
+				770EA49F2624668A00528EBA /* CurrentFutureProject.swift in Sources */,
 				77F0C41326133468007F0559 /* TaskListTab.swift in Sources */,
+				770EA4992624632C00528EBA /* FutureProjectsDataModel.swift in Sources */,
 				77F0C45D26137B18007F0559 /* FirestoreManager.swift in Sources */,
 				770EA441261A764A00528EBA /* ProjectsDataModel.swift in Sources */,
 				77618F982614772200407F46 /* UserSettings.swift in Sources */,

@@ -8,6 +8,7 @@
 import SwiftUI
 
 protocol ActionNotifier {
+    var type : String {get}
     func recievedNotificationFromCell(cellId: String)
     func recievedEditingNotificationFromCell(cellId: String)
     func reloadData()
@@ -20,6 +21,8 @@ protocol EditorNotifier {
 }
 
 struct TaskListTab: View, ActionNotifier, EditorNotifier {
+    let type = "none"
+    
     @ObservedObject var globalTasksData = GlobalTasksDataModel()
     @ObservedObject var projectsData = ProjectsDataModel()
     @State var newTask = ""

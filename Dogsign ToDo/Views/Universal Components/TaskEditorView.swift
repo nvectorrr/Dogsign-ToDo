@@ -41,8 +41,11 @@ struct TaskEditorView: View {
             .padding(.horizontal, 15)
             
             TextField("\(title)", text: $stitle)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
             TextField("\(description)", text: $sdescr)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
             TextField("\(deadline)", text: $sdeadline)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
             
             Menu {
                 ForEach(0 ..< projData.count) {i in

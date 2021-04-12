@@ -25,6 +25,7 @@ struct DropdownTaskCreator : View {
                 VStack {
                     HStack {
                         TextField("New task", text: $newTask)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
                         Button(action: {
                                 self.expand.toggle()
                                 self.newTask = ""
@@ -34,7 +35,9 @@ struct DropdownTaskCreator : View {
                     }
                     
                     TextField("Description", text: $newDescr)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
                     TextField("Deadline", text: $newDeadline)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
                     
                     Menu {
                         ForEach(0 ..< projData.count) {i in
@@ -99,7 +102,13 @@ struct DropdownTaskCreator : View {
     }
     
     func addNewGlobalTask() {
-        db.collection(tasksPath).addDocument(data: ["title" : newTask, "descr" : newDescr, "deadline" : newDeadline, "isFinished" : 0, "createdDate" : currDateToTimestamp(), "assigned_user" : newAssignedTo, "taskRelatedData" : "none", "assigned_project" : newAssignedProj, "important" : newImportant]) { err in
+        var path = tasksPath
+        
+        if notifier.type == "future" {
+            path = futureTasksPath
+        }
+        
+        db.collection(path).addDocument(data: ["title" : newTask, "descr" : newDescr, "deadline" : newDeadline, "isFinished" : 0, "createdDate" : currDateToTimestamp(), "assigned_user" : newAssignedTo, "taskRelatedData" : "none", "assigned_project" : newAssignedProj, "important" : newImportant]) { err in
             if let err = err {
                 print("Error writing document: \(err)")
             } else {
