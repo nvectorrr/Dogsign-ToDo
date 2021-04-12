@@ -18,6 +18,10 @@
 		770EA49C262465D900528EBA /* FutureGlobalTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770EA49B262465D900528EBA /* FutureGlobalTasks.swift */; };
 		770EA49F2624668A00528EBA /* CurrentFutureProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770EA49E2624668A00528EBA /* CurrentFutureProject.swift */; };
 		770EA4A22624670500528EBA /* FutureProjectTasksDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770EA4A12624670500528EBA /* FutureProjectTasksDataModel.swift */; };
+		770EA4B5262487A900528EBA /* ContentPlanTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770EA4B4262487A900528EBA /* ContentPlanTab.swift */; };
+		770EA4B82624A94B00528EBA /* ContentPlanDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770EA4B72624A94B00528EBA /* ContentPlanDataModel.swift */; };
+		770EA4BB2624AC1C00528EBA /* ContentPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770EA4BA2624AC1C00528EBA /* ContentPlanView.swift */; };
+		770EA4BE2624AE4600528EBA /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770EA4BD2624AE4600528EBA /* URLs.swift */; };
 		77618F982614772200407F46 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77618F972614772200407F46 /* UserSettings.swift */; };
 		77618F9B2615E18D00407F46 /* TaskEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77618F9A2615E18D00407F46 /* TaskEditorView.swift */; };
 		77618FB0261750C100407F46 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77618FAF261750C100407F46 /* Auth.swift */; };
@@ -51,6 +55,10 @@
 		770EA49B262465D900528EBA /* FutureGlobalTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureGlobalTasks.swift; sourceTree = "<group>"; };
 		770EA49E2624668A00528EBA /* CurrentFutureProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentFutureProject.swift; sourceTree = "<group>"; };
 		770EA4A12624670500528EBA /* FutureProjectTasksDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureProjectTasksDataModel.swift; sourceTree = "<group>"; };
+		770EA4B4262487A900528EBA /* ContentPlanTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentPlanTab.swift; sourceTree = "<group>"; };
+		770EA4B72624A94B00528EBA /* ContentPlanDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentPlanDataModel.swift; sourceTree = "<group>"; };
+		770EA4BA2624AC1C00528EBA /* ContentPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentPlanView.swift; sourceTree = "<group>"; };
+		770EA4BD2624AE4600528EBA /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
 		77618F972614772200407F46 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		77618F9A2615E18D00407F46 /* TaskEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorView.swift; sourceTree = "<group>"; };
 		77618FAF261750C100407F46 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
@@ -156,6 +164,7 @@
 				7762633D2613DAB200816214 /* Convertions.swift */,
 				770EA439261A44B800528EBA /* Definers.swift */,
 				770EA480261B2AAE00528EBA /* BundleInfo.swift */,
+				770EA4BD2624AE4600528EBA /* URLs.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -171,6 +180,7 @@
 				770EA4982624632C00528EBA /* FutureProjectsDataModel.swift */,
 				770EA49B262465D900528EBA /* FutureGlobalTasks.swift */,
 				770EA4A12624670500528EBA /* FutureProjectTasksDataModel.swift */,
+				770EA4B72624A94B00528EBA /* ContentPlanDataModel.swift */,
 			);
 			path = "Data Models";
 			sourceTree = "<group>";
@@ -182,6 +192,7 @@
 				77F0C415261334A6007F0559 /* ProjectsTab.swift */,
 				770EA47D261B160F00528EBA /* FinishedTasksTab.swift */,
 				770EA495262462B200528EBA /* FutureProjectsTab.swift */,
+				770EA4B4262487A900528EBA /* ContentPlanTab.swift */,
 			);
 			path = Tabs;
 			sourceTree = "<group>";
@@ -194,6 +205,7 @@
 				77618F9A2615E18D00407F46 /* TaskEditorView.swift */,
 				770EA443261A7B5B00528EBA /* CurrentProject.swift */,
 				770EA49E2624668A00528EBA /* CurrentFutureProject.swift */,
+				770EA4BA2624AC1C00528EBA /* ContentPlanView.swift */,
 			);
 			path = "Universal Components";
 			sourceTree = "<group>";
@@ -322,6 +334,8 @@
 			files = (
 				77618FB0261750C100407F46 /* Auth.swift in Sources */,
 				7762633E2613DAB200816214 /* Convertions.swift in Sources */,
+				770EA4B82624A94B00528EBA /* ContentPlanDataModel.swift in Sources */,
+				770EA4BE2624AE4600528EBA /* URLs.swift in Sources */,
 				77F0C41A26134062007F0559 /* TaskView.swift in Sources */,
 				77F0C45A2613799E007F0559 /* GlobalTasks.swift in Sources */,
 				770EA49C262465D900528EBA /* FutureGlobalTasks.swift in Sources */,
@@ -338,9 +352,11 @@
 				770EA444261A7B5B00528EBA /* CurrentProject.swift in Sources */,
 				77F0C4C52613CA23007F0559 /* DropdownTaskCreator.swift in Sources */,
 				770EA49F2624668A00528EBA /* CurrentFutureProject.swift in Sources */,
+				770EA4B5262487A900528EBA /* ContentPlanTab.swift in Sources */,
 				77F0C41326133468007F0559 /* TaskListTab.swift in Sources */,
 				770EA4992624632C00528EBA /* FutureProjectsDataModel.swift in Sources */,
 				77F0C45D26137B18007F0559 /* FirestoreManager.swift in Sources */,
+				770EA4BB2624AC1C00528EBA /* ContentPlanView.swift in Sources */,
 				770EA441261A764A00528EBA /* ProjectsDataModel.swift in Sources */,
 				77618F982614772200407F46 /* UserSettings.swift in Sources */,
 				770EA43A261A44B800528EBA /* Definers.swift in Sources */,

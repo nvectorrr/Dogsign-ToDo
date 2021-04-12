@@ -13,6 +13,7 @@ let tasksPath = "tasks_feed"
 let futureTasksPath = "future_tasks_feed"
 let currentProjectsPath = "current_projects"
 let futureProjectsPath = "future_projects"
+let contentPlanPath = "content_plan"
 let requirementsPath = "requirements"
 
 class FirebaseManager {

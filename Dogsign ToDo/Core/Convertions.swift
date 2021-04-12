@@ -20,3 +20,11 @@ func intToBool(num : Int) -> Bool {
         return true
     }
 }
+
+func boolToInt(value: Bool) -> Int {
+    if value == false {
+        return 0
+    } else {
+        return 1
+    }
+}

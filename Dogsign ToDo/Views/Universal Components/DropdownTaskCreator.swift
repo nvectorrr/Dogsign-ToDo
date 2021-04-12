@@ -14,7 +14,7 @@ struct DropdownTaskCreator : View {
     @State var newTask = ""
     @State var newDescr = ""
     @State var newDeadline = ""
-    @State var newRelatedData = ""
+    @State var newRelatedData = "none"
     @State var newAssignedProj = ""
     @State var newAssignedTo = ""
     @State var newAssignedToName = ""

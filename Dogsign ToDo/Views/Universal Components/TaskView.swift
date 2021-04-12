@@ -47,7 +47,9 @@ struct TaskView: View {
                             .font(.system(size: 14))
                         Text("Related data: \(taskRelatedData)")
                             .font(.system(size: 14))
-                        Link("Open Data", destination: urlProtocol(link: taskRelatedData))
+                        if taskRelatedData != "none" {
+                            Link("Open related data", destination: urlProtocol(link: taskRelatedData))
+                        }
                     }
                 }
                 
@@ -91,16 +93,6 @@ struct TaskView: View {
     
     func showDetailsAction() {
         self.showDetails.toggle()
-    }
-    
-    func urlProtocol(link: String) -> URL {
-        if link.hasPrefix("https://") {
-            return URL(string: link)!
-        } else if link.hasPrefix("http://") {
-            return URL(string: link)!
-        } else {
-            return URL(string: ("https://" + link))!
-        }
     }
     
     func checkboxController() {

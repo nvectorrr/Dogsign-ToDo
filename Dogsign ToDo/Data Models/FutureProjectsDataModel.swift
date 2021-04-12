@@ -18,7 +18,7 @@ class FutureProjectsDataModel : ObservableObject {
     }
     
     func fetchData() {
-        db.collection(futureProjectsPath).getDocuments { (querySnapshot, err) in
+        db.collection(futureProjectsPath).addSnapshotListener { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
