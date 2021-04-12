@@ -46,6 +46,8 @@ struct TaskEditorView: View {
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             TextField("\(deadline)", text: $sdeadline)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
+            TextField("\(taskRelatedData)", text: $stackRelatedData)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
             
             Menu {
                 ForEach(0 ..< projData.count) {i in
@@ -117,6 +119,9 @@ struct TaskEditorView: View {
         }
         if(assignedUser != sassignedUser) {
             db.collection(tasksPath).document(self.notifier.globalTasksData.currentUserTasks[self.notifier.taskForEditing].id).updateData(["assigned_user": sassignedUser])
+        }
+        if(taskRelatedData != stackRelatedData) {
+            db.collection(tasksPath).document(self.notifier.globalTasksData.currentUserTasks[self.notifier.taskForEditing].id).updateData(["taskRelatedData": stackRelatedData])
         }
         if(assignedProject != sassignedProject) {
             db.collection(tasksPath).document(self.notifier.globalTasksData.currentUserTasks[self.notifier.taskForEditing].id).updateData(["assigned_project": sassignedProject])

@@ -14,6 +14,7 @@ struct DropdownTaskCreator : View {
     @State var newTask = ""
     @State var newDescr = ""
     @State var newDeadline = ""
+    @State var newRelatedData = ""
     @State var newAssignedProj = ""
     @State var newAssignedTo = ""
     @State var newAssignedToName = ""
@@ -37,6 +38,8 @@ struct DropdownTaskCreator : View {
                     TextField("Description", text: $newDescr)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                     TextField("Deadline", text: $newDeadline)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    TextField("Related data", text: $newRelatedData)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                     
                     Menu {
@@ -108,7 +111,7 @@ struct DropdownTaskCreator : View {
             path = futureTasksPath
         }
         
-        db.collection(path).addDocument(data: ["title" : newTask, "descr" : newDescr, "deadline" : newDeadline, "isFinished" : 0, "createdDate" : currDateToTimestamp(), "assigned_user" : newAssignedTo, "taskRelatedData" : "none", "assigned_project" : newAssignedProj, "important" : newImportant]) { err in
+        db.collection(path).addDocument(data: ["title" : newTask, "descr" : newDescr, "deadline" : newDeadline, "isFinished" : 0, "createdDate" : currDateToTimestamp(), "assigned_user" : newAssignedTo, "taskRelatedData" : newRelatedData, "assigned_project" : newAssignedProj, "important" : newImportant]) { err in
             if let err = err {
                 print("Error writing document: \(err)")
             } else {
