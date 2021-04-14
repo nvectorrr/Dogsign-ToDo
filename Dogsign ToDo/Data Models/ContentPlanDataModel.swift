@@ -11,6 +11,7 @@ import FirebaseFirestore
 struct ContentPlanData : Identifiable {
     var id = ""
     var title = ""
+    var deadline = ""
     var description = "Отсутствует"
     var relatedData = "Отсутствует"
     var week = -1
@@ -45,6 +46,7 @@ class ContentPlanDataModel : ObservableObject {
                     newTask.id = document.documentID
                     newTask.title = document["title"] as! String
                     newTask.description = document["descr"] as! String
+                    newTask.deadline = document["deadline"] as! String
                     newTask.createdDate = document["createdDate"] as! Timestamp
                     newTask.relatedData = document["relatedData"] as! String
                     newTask.week = document["week"] as! Int

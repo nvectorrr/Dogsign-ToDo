@@ -18,28 +18,28 @@ struct ContentPlanView: View {
             switch week {
             case 1:
                 List (contentPlan.week_1) { item in
-                    ContentPlanItem(id: item.id, title: item.title, description: item.description, relatedData: item.relatedData, week: item.week, isChecked: intToBool(num: item.isFinished))
+                    ContentPlanItem(id: item.id, title: item.title, description: item.description, deadline: item.deadline, relatedData: item.relatedData, week: item.week, isChecked: intToBool(num: item.isFinished))
                 }
                 .onAppear {
                     self.contentPlan.fetchData()
                 }
             case 2:
                 List (contentPlan.week_2) { item in
-                    ContentPlanItem(id: item.id, title: item.title, description: item.description, relatedData: item.relatedData, week: item.week, isChecked: intToBool(num: item.isFinished))
+                    ContentPlanItem(id: item.id, title: item.title, description: item.description, deadline: item.deadline, relatedData: item.relatedData, week: item.week, isChecked: intToBool(num: item.isFinished))
                 }
                 .onAppear {
                     self.contentPlan.fetchData()
                 }
             case 3:
                 List (contentPlan.week_3) { item in
-                    ContentPlanItem(id: item.id, title: item.title, description: item.description, relatedData: item.relatedData, week: item.week, isChecked: intToBool(num: item.isFinished))
+                    ContentPlanItem(id: item.id, title: item.title, description: item.description, deadline: item.deadline, relatedData: item.relatedData, week: item.week, isChecked: intToBool(num: item.isFinished))
                 }
                 .onAppear {
                     self.contentPlan.fetchData()
                 }
             case 4:
                 List (contentPlan.week_4) { item in
-                    ContentPlanItem(id: item.id, title: item.title, description: item.description, relatedData: item.relatedData, week: item.week, isChecked: intToBool(num: item.isFinished))
+                    ContentPlanItem(id: item.id, title: item.title, description: item.description, deadline: item.deadline, relatedData: item.relatedData, week: item.week, isChecked: intToBool(num: item.isFinished))
                 }
                 .onAppear {
                     self.contentPlan.fetchData()
@@ -55,6 +55,7 @@ struct ContentPlanItem : View {
     var id : String
     var title : String
     var description : String
+    var deadline : String
     var relatedData : String
     var week : Int
     
@@ -72,6 +73,8 @@ struct ContentPlanItem : View {
                 VStack (alignment: .leading) {
                     Text(title)
                         .font(.system(size: 20))
+                    Text("Deadline: \(deadline)")
+                        .font(.system(size: 14))
                     Text("Description: \(description)")
                         .font(.system(size: 14))
                     Text("Related data: \(relatedData)")
@@ -120,6 +123,7 @@ struct DropdownContentPlanItemCreator : View {
     @State var expand = false
     @State var newTask = ""
     @State var newDescr = ""
+    @State var newDeadline = ""
     @State var newRelatedData = "none"
     @State var newWeek = -1
     
@@ -138,6 +142,8 @@ struct DropdownContentPlanItemCreator : View {
                         }
                     }
                     
+                    TextField("Deadline", text: $newDeadline)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
                     TextField("Description", text: $newDescr)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                     TextField("Related data", text: $newRelatedData)
@@ -186,7 +192,7 @@ struct DropdownContentPlanItemCreator : View {
     }
     
     func addNewContentPlanItem() {
-        db.collection(contentPlanPath).addDocument(data: ["title" : newTask, "descr" : newDescr, "isFinished" : 0, "createdDate" : currDateToTimestamp(), "relatedData" : newRelatedData, "week" : newWeek]) { err in
+        db.collection(contentPlanPath).addDocument(data: ["title" : newTask, "descr" : newDescr, "deadline" : newDeadline, "isFinished" : 0, "createdDate" : currDateToTimestamp(), "relatedData" : newRelatedData, "week" : newWeek]) { err in
             if let err = err {
                 print("Error writing document: \(err)")
             } else {
@@ -196,6 +202,7 @@ struct DropdownContentPlanItemCreator : View {
         
         self.newTask = ""
         self.newDescr = ""
+        self.newDeadline = ""
         self.newRelatedData = "none"
         self.newWeek = -1
         self.expand.toggle()
